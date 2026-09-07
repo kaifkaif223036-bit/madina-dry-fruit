@@ -51,7 +51,7 @@
             color: #ecf0f1;
         }
 
-        /* HERO SECTION WITH AUTHENTIC MIX DRY FRUITS & NUTS BACKGROUND */
+        /* HERO SECTION WITH DRY FRUITS BACKGROUND */
         .hero {
             position: relative;
             min-height: 65vh;
@@ -72,10 +72,8 @@
             line-height: 1.3;
         }
 
-        /* PROMINENTLY HIGHLIGHTED TAGLINE BADGE */
         .highlight-tag {
             display: inline-block;
-            background: #f39c12;
             background: linear-gradient(135deg, #f1c40f, #e67e22);
             color: #111111;
             padding: 8px 22px;
@@ -247,7 +245,7 @@
             text-decoration: none;
         }
 
-        /* CART MODAL & CUSTOMER ADDRESS FORM */
+        /* CART MODAL & CUSTOMER DETAILS */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -284,15 +282,63 @@
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
             padding: 0.8rem 0;
-            max-height: 160px;
+            max-height: 220px;
             overflow-y: auto;
         }
         .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.6rem;
-            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            background: #fdfaf6;
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid #f0e6d2;
+        }
+        .cart-item-info {
+            flex: 1;
+            padding-right: 10px;
+        }
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .qty-btn {
+            background: #e67e22;
+            color: white;
+            border: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+        .qty-btn:hover {
+            background: #d35400;
+        }
+        .delete-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+        .delete-btn:hover {
+            background: #c0392b;
         }
         .cart-total {
             font-weight: bold;
@@ -352,7 +398,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION WITH DRY FRUITS BACKGROUND -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
             <h2>Premium Quality All Dry Fruits Available</h2>
@@ -391,15 +437,15 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- CART MODAL & CUSTOMER DETAILS -->
+    <!-- CART MODAL WITH PLUS/MINUS & DELETE OPTIONS -->
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleCart()">&times;</span>
             <h2 style="color: #2c3e50;">Your Shopping Cart</h2>
             
-            <ul class="cart-items-list" id="cart-items">
-                <li>Your cart is empty.</li>
-            </ul>
+            <div class="cart-items-list" id="cart-items">
+                <p style="text-align:center; color:#777;">Your cart is empty.</p>
+            </div>
             <div class="cart-total" id="cart-total">Total: Rs. 0</div>
 
             <h3 style="margin-bottom: 0.6rem; color: #2c3e50;">Customer Details</h3>
@@ -477,6 +523,7 @@
             document.getElementById('carousel-3').innerHTML = productsCategory3.map(createProductCard).join('');
         }
 
+        // ADD TO CART
         function addToCart(productId) {
             const product = allProducts.find(p => p.id === productId);
             const existingItem = cart.find(item => item.id === productId);
@@ -489,6 +536,36 @@
             updateCartUI();
         }
 
+        // INCREASE QTY (+ BUTTON)
+        function increaseQty(productId) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity += 1;
+                updateCartUI();
+            }
+        }
+
+        // DECREASE QTY (- BUTTON)
+        function decreaseQty(productId) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                if (item.quantity > 1) {
+                    item.quantity -= 1;
+                } else {
+                    removeFromCart(productId);
+                    return;
+                }
+                updateCartUI();
+            }
+        }
+
+        // REMOVE ITEM COMPLETELY (CUT / TRASH BUTTON)
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        // UPDATE CART INTERFACE
         function updateCartUI() {
             const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
             document.getElementById('cart-count').innerText = totalCount;
@@ -497,7 +574,7 @@
             const totalElement = document.getElementById('cart-total');
 
             if (cart.length === 0) {
-                cartList.innerHTML = '<li>Your cart is empty.</li>';
+                cartList.innerHTML = '<p style="text-align:center; color:#777; padding: 1rem 0;">Your cart is empty.</p>';
                 totalElement.innerText = 'Total: Rs. 0';
                 return;
             }
@@ -507,10 +584,18 @@
                 const itemTotal = item.price * item.quantity;
                 totalCost += itemTotal;
                 return `
-                    <li class="cart-item">
-                        <span><strong>${item.name}</strong> (x${item.quantity})</span>
-                        <span>Rs. ${itemTotal}</span>
-                    </li>
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <strong>${item.name}</strong><br>
+                            <span style="color:#d35400;">Rs. ${item.price} x ${item.quantity} = Rs. ${itemTotal}</span>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="decreaseQty(${item.id})">-</button>
+                            <span style="font-weight:bold; min-width:18px; text-align:center;">${item.quantity}</span>
+                            <button class="qty-btn" onclick="increaseQty(${item.id})">+</button>
+                            <button class="delete-btn" onclick="removeFromCart(${item.id})" title="Remove Item"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
                 `;
             }).join('');
 
