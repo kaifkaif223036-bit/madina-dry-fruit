@@ -48,12 +48,12 @@
             color: #ecf0f1;
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION WITH DRY FRUIT BACKGROUND */
         .hero {
             position: relative;
             min-height: 65vh;
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
-                        url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                        url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -284,7 +284,7 @@
             display: block;
             margin-bottom: 0.2rem;
         }
-        .checkout-form input {
+        .checkout-form input, .checkout-form textarea {
             width: 100%;
             padding: 0.7rem;
             margin-bottom: 0.9rem;
@@ -324,32 +324,32 @@
     <header>
         <div class="logo">
             <h1>Madina Dry Fruit</h1>
-            <p>fresh quality with best price</p>
+            <p>[fresh quality with best price]</p>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION WITH DRY FRUIT THEME -->
     <section class="hero">
         <div class="hero-content">
-            <h2>Premium Dry Fruits & Nuts</h2>
-            <p>fresh quality with best price</p>
+            <h2>Premium Quality Dry Fruits</h2>
+            <p>[fresh quality with best price]</p>
             <a href="#products-start" class="shop-now-btn">Shop Now</a>
         </div>
     </section>
 
-    <!-- PRODUCTS SECTION WITH MULTIPLE CAROUSELS -->
+    <!-- PRODUCTS CAROUSELS -->
     <section class="products-section" id="products-start">
         
-        <!-- CAROUSEL 1: DRY FRUITS & NUTS -->
-        <h3 class="carousel-title">Dry Fruits & Nuts</h3>
+        <!-- CAROUSEL 1 -->
+        <h3 class="carousel-title">Almonds, Walnuts & Cashews</h3>
         <div class="carousel-container" id="carousel-1"></div>
 
-        <!-- CAROUSEL 2: RAISINS, DATES & DELIGHTS -->
-        <h3 class="carousel-title">Raisins, Figs & Dates</h3>
+        <!-- CAROUSEL 2 -->
+        <h3 class="carousel-title">Apricots, Figs & Raisins</h3>
         <div class="carousel-container" id="carousel-2"></div>
 
-        <!-- CAROUSEL 3: SPECIALITIES & HONEY -->
-        <h3 class="carousel-title">Organic Honey & Special Items</h3>
+        <!-- CAROUSEL 3 -->
+        <h3 class="carousel-title">Organic Honey, Special Mix & Dates</h3>
         <div class="carousel-container" id="carousel-3"></div>
 
     </section>
@@ -365,7 +365,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- CART MODAL & CHECKOUT FORM -->
+    <!-- CART MODAL & CHECKOUT FORM WITH ADDRESS -->
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleCart()">&times;</span>
@@ -382,7 +382,10 @@
                 <input type="text" id="cust-name" placeholder="Enter your full name" required>
                 
                 <label for="cust-phone">Phone Number</label>
-                <input type="tel" id="cust-phone" placeholder="Enter your phone number (e.g. 03092700965)" required>
+                <input type="tel" id="cust-phone" placeholder="Enter phone number (e.g. 03092700965)" required>
+                
+                <label for="cust-address">Delivery Address</label>
+                <textarea id="cust-address" rows="3" placeholder="Enter your complete delivery address" required></textarea>
                 
                 <button type="submit" class="submit-order-btn">Send Order via Email</button>
             </form>
@@ -397,34 +400,34 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // CORRECTED PRODUCT NAMES & MATCHED IMAGE URLS
+        // EXACT PRODUCTS LIST WITH UPDATED NAMES AND PRICES
         const productsCategory1 = [
-            { id: 1, name: 'Desi Almond Giri (Badam)', price: 3400, unit: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
-            { id: 2, name: 'Dried Figs (Anjeer)', price: 3000, unit: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
+            { id: 1, name: 'American Almond Giri', price: 3400, unit: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
+            { id: 2, name: 'Magaz Badam Gurbandi', price: 3000, unit: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
             { id: 3, name: 'Xinjiang Thin Shell Walnut (Akhrot)', price: 800, unit: 'kg', image: 'https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg' },
             { id: 4, name: 'Walnut Kernel (Akhrot Giri)', price: 2400, unit: 'kg', image: 'https://i.ibb.co/3mBrHR1m/images-8.jpg' },
-            { id: 5, name: 'Salted Pistachio (Pista)', price: 3800, unit: 'kg', image: 'https://i.ibb.co/fG1sbp70/teated-18781-703935-151021070958804.jpg' },
-            { id: 6, name: 'Roasted Cashew (Kaju)', price: 3600, unit: 'kg', image: 'https://i.ibb.co/XZR8mWkn/z4m4491-TOuw-Od07d-RUq-Y3-Jc-Zcq-EF2r9sk-Aysf-Kw-K.jpg' },
-            { id: 7, name: 'Plain Pistachio Kernel (Pista Giri)', price: 5000, unit: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' }
+            { id: 5, name: 'Salted Kaju', price: 3800, unit: 'kg', image: 'https://i.ibb.co/fG1sbp70/teated-18781-703935-151021070958804.jpg' },
+            { id: 6, name: 'Plain Kaju', price: 3600, unit: 'kg', image: 'https://i.ibb.co/XZR8mWkn/z4m4491-TOuw-Od07d-RUq-Y3-Jc-Zcq-EF2r9sk-Aysf-Kw-K.jpg' },
+            { id: 7, name: 'Salted Pistachio', price: 5000, unit: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' }
         ];
 
         const productsCategory2 = [
             { id: 8, name: 'Dry Apricot (Khumani)', price: 1000, unit: 'kg', image: 'https://i.ibb.co/kj0mKHp/images-10.jpg' },
-            { id: 9, name: 'Black Raisins (Kala Kishmish)', price: 1400, unit: 'kg', image: 'https://i.ibb.co/PG92LmTd/images-9.jpg' },
-            { id: 10, name: 'Long Green Raisins (Sundekhani Kishmish)', price: 2900, unit: 'kg', image: 'https://i.ibb.co/cP0pgP2/images-3.jpg' },
-            { id: 11, name: 'Mix Dry Fruit', price: 1400, unit: 'kg', image: 'https://i.ibb.co/VYCFk7Nv/Sdf266a4d4f9d476c97e9dbc95c2574470.jpg' },
-            { id: 12, name: 'Golden Raisins (Sunderkhani)', price: 1600, unit: 'kg', image: 'https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg' },
-            { id: 13, name: 'Dried Plum (Aloo Bukhara)', price: 1200, unit: 'kg', image: 'https://i.ibb.co/fzG82C88/images-13.jpg' },
-            { id: 14, name: 'Pine Nuts With Shell (Chilgoza)', price: 3950, unit: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' }
+            { id: 9, name: 'Apricot (Khumani Special)', price: 1400, unit: 'kg', image: 'https://i.ibb.co/PG92LmTd/images-9.jpg' },
+            { id: 10, name: 'Fig (Anjeer)', price: 2900, unit: 'kg', image: 'https://i.ibb.co/cP0pgP2/images-3.jpg' },
+            { id: 11, name: 'Premium Raisin (Kishmish)', price: 1400, unit: 'kg', image: 'https://i.ibb.co/VYCFk7Nv/Sdf266a4d4f9d476c97e9dbc95c2574470.jpg' },
+            { id: 12, name: 'Black Raisin', price: 1600, unit: 'kg', image: 'https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg' },
+            { id: 13, name: 'Khopra (Dried Coconut)', price: 1200, unit: 'kg', image: 'https://i.ibb.co/fzG82C88/images-13.jpg' },
+            { id: 14, name: 'Phool Makhana', price: 3950, unit: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' }
         ];
 
         const productsCategory3 = [
             { id: 15, name: 'Pure Raw Honey (Chota Shehed)', price: 5600, unit: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg' },
-            { id: 16, name: 'Mix Seeds & Kernels', price: 1950, unit: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
+            { id: 16, name: 'Mong Phali & Kaghzi Badam Mix', price: 1950, unit: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
             { id: 17, name: 'Chilgoza Kernel (Chilgoza Giri)', price: 9900, unit: 'kg', image: 'https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg' },
             { id: 18, name: 'Fresh Zahidi Dates (Zahidi Khajoor)', price: 480, unit: 'kg', image: 'https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg' },
             { id: 19, name: 'Rabbi Dates (Rabbi Khajoor)', price: 800, unit: 'kg', image: 'https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp' },
-            { id: 20, name: 'Ajwa Dates Premium (Ajwa Khajoor)', price: 900, unit: 'kg', image: 'https://i.ibb.co/zttfBfF/product-jpeg.jpg' }
+            { id: 20, name: 'Muzafati Dates', price: 900, unit: 'kg', image: 'https://i.ibb.co/zttfBfF/product-jpeg.jpg' }
         ];
 
         const allProducts = [...productsCategory1, ...productsCategory2, ...productsCategory3];
@@ -509,6 +512,7 @@
 
             const name = document.getElementById('cust-name').value;
             const phone = document.getElementById('cust-phone').value;
+            const address = document.getElementById('cust-address').value;
             
             let orderItemsText = cart.map(item => `- ${item.name} (Qty: ${item.quantity} kg) = Rs. ${item.price * item.quantity}`).join('\n');
             const totalCost = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -519,14 +523,15 @@
                 `New Order Details:\n` +
                 `-----------------------------\n` +
                 `Customer Name: ${name}\n` +
-                `Customer Phone: ${phone}\n\n` +
+                `Customer Phone: ${phone}\n` +
+                `Delivery Address: ${address}\n\n` +
                 `Items Ordered:\n${orderItemsText}\n\n` +
                 `-----------------------------\n` +
                 `Total Amount: Rs. ${totalCost}\n` +
                 `-----------------------------`
             );
             
-            // Trigger mailto link directly to owner email kaifkaif223036@gmail.com
+            // Trigger mailto link directly to owner email
             window.location.href = `mailto:kaifkaif223036@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
             alert('Order generated! Your default email app will now open. Please press Send to confirm your order.');
