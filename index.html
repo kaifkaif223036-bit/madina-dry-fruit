@@ -7,8 +7,6 @@
     
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- EmailJS SDK for free email sending -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <style>
         /* RESET & BASE STYLES */
@@ -25,6 +23,7 @@
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
+            padding-bottom: 20px;
         }
 
         /* HEADER & NAVBAR */
@@ -41,7 +40,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .logo h1 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: #f39c12;
         }
         .logo p {
@@ -52,24 +51,26 @@
         /* HERO SECTION */
         .hero {
             position: relative;
-            min-height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            min-height: 65vh;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
                         url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
-            padding: 2rem;
+            padding: 2rem 1rem;
         }
         .hero-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 1.5rem;
+            color: #f1c40f;
+            font-weight: 500;
         }
         .shop-now-btn {
             background: #e67e22;
@@ -82,69 +83,83 @@
             text-decoration: none;
             transition: 0.3s ease;
             font-weight: bold;
+            display: inline-block;
         }
         .shop-now-btn:hover {
             background: #d35400;
+            transform: scale(1.05);
         }
 
-        /* PRODUCTS CAROUSEL SECTION */
+        /* PRODUCT CAROUSEL SECTION */
         .products-section {
-            padding: 3rem 5%;
+            padding: 2rem 3%;
         }
-        .products-section h2 {
-            text-align: center;
-            margin-bottom: 2rem;
+        .carousel-title {
+            margin: 1.5rem 0 0.8rem 1rem;
             color: #2c3e50;
+            font-size: 1.4rem;
+            border-left: 4px solid #e67e22;
+            padding-left: 8px;
         }
         .carousel-container {
             display: flex;
             overflow-x: auto;
-            gap: 20px;
+            gap: 15px;
             padding: 10px 5px;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
         .carousel-container::-webkit-scrollbar {
-            height: 8px;
+            height: 6px;
         }
         .carousel-container::-webkit-scrollbar-thumb {
             background: #e67e22;
             border-radius: 10px;
         }
+        
+        /* PRODUCT CARD */
         .product-card {
-            flex: 0 0 280px;
+            flex: 0 0 240px;
             scroll-snap-align: start;
             background: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.3s;
+            transition: transform 0.2s;
+            border: 1px solid #eee;
         }
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
         .product-card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
+            background-color: #f0f0f0;
         }
         .product-details {
-            padding: 1rem;
+            padding: 0.9rem;
             text-align: center;
         }
         .product-title {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: bold;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
+            color: #333;
+            height: 2.4em;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
         .product-price {
             color: #e67e22;
             font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            margin-bottom: 0.8rem;
         }
         .add-to-cart-btn {
             background: #27ae60;
@@ -164,18 +179,18 @@
         /* FLOATING BUTTONS */
         .floating-cart {
             position: fixed;
-            bottom: 90px;
+            bottom: 85px;
             right: 20px;
             background: #e67e22;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 58px;
+            height: 58px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-size: 1.4rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             cursor: pointer;
             z-index: 1000;
         }
@@ -183,27 +198,27 @@
             position: absolute;
             top: 2px;
             right: 2px;
-            background: red;
+            background: #c0392b;
             color: white;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             padding: 2px 7px;
             border-radius: 50%;
             font-weight: bold;
         }
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
+            bottom: 18px;
             right: 20px;
             background: #25d366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 58px;
+            height: 58px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             z-index: 1000;
             text-decoration: none;
         }
@@ -215,7 +230,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.6);
             display: none;
             justify-content: center;
             align-items: center;
@@ -224,9 +239,9 @@
         .modal-content {
             background: #fff;
             padding: 1.5rem;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 10px;
+            width: 92%;
+            max-width: 480px;
+            border-radius: 12px;
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
@@ -234,37 +249,48 @@
         .close-modal {
             position: absolute;
             top: 15px;
-            right: 20px;
-            font-size: 1.5rem;
+            right: 18px;
+            font-size: 1.6rem;
             cursor: pointer;
             color: #888;
         }
         .cart-items-list {
             list-style: none;
             margin: 1rem 0;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            padding: 1rem 0;
-            max-height: 150px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 0.8rem 0;
+            max-height: 180px;
             overflow-y: auto;
         }
         .cart-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
+            align-items: center;
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
         }
         .cart-total {
             font-weight: bold;
             text-align: right;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        .checkout-form label {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 0.2rem;
         }
         .checkout-form input {
             width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
+            padding: 0.7rem;
+            margin-bottom: 0.9rem;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 6px;
+            font-size: 0.95rem;
         }
         .submit-order-btn {
             background: #e67e22;
@@ -272,10 +298,14 @@
             border: none;
             width: 100%;
             padding: 0.8rem;
-            border-radius: 5px;
+            border-radius: 6px;
             font-size: 1rem;
             cursor: pointer;
             font-weight: bold;
+            transition: 0.2s;
+        }
+        .submit-order-btn:hover {
+            background: #d35400;
         }
 
         /* FOOTER */
@@ -294,25 +324,34 @@
     <header>
         <div class="logo">
             <h1>Madina Dry Fruit</h1>
-            <p>Fresh Quality with Best Price</p>
+            <p>[fresh quality with best price]</p>
         </div>
     </header>
 
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <h2>Premium Quality Dry Fruits</h2>
-            <p>Fresh quality with best price delivered straight to your home</p>
-            <a href="#products" class="shop-now-btn">Shop Now</a>
+            <h2>Premium Dry Fruits & Nuts</h2>
+            <p>[Fresh Quality With Best Price]</p>
+            <a href="#products-start" class="shop-now-btn">Shop Now</a>
         </div>
     </section>
 
-    <!-- PRODUCTS CAROUSEL -->
-    <section class="products-section" id="products">
-        <h2>Our Featured Products</h2>
-        <div class="carousel-container" id="product-container">
-            <!-- Products rendered dynamically via JS -->
-        </div>
+    <!-- PRODUCTS SECTION WITH MULTIPLE CAROUSELS -->
+    <section class="products-section" id="products-start">
+        
+        <!-- CAROUSEL 1: PREMIUM DRY FRUITS -->
+        <h3 class="carousel-title">Premium Dry Fruits & Nuts</h3>
+        <div class="carousel-container" id="carousel-1"></div>
+
+        <!-- CAROUSEL 2: DATES & SPECIALITIES -->
+        <h3 class="carousel-title">Fresh Dates & Dried Delights</h3>
+        <div class="carousel-container" id="carousel-2"></div>
+
+        <!-- CAROUSEL 3: HONEY & MIXED SELECTIONS -->
+        <h3 class="carousel-title">Organic Honey & Special Collections</h3>
+        <div class="carousel-container" id="carousel-3"></div>
+
     </section>
 
     <!-- FLOATING CART BUTTON -->
@@ -322,7 +361,7 @@
     </div>
 
     <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/03092700965" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/03092700965" class="whatsapp-float" target="_blank" title="Contact on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -330,17 +369,21 @@
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleCart()">&times;</span>
-            <h2>Your Shopping Cart</h2>
+            <h2 style="color: #2c3e50;">Your Shopping Cart</h2>
             
             <ul class="cart-items-list" id="cart-items">
                 <li>Your cart is empty.</li>
             </ul>
             <div class="cart-total" id="cart-total">Total: Rs. 0</div>
 
-            <h3>Customer Details</h3>
+            <h3 style="margin-bottom: 0.6rem; color: #2c3e50;">Customer Details</h3>
             <form class="checkout-form" id="checkout-form" onsubmit="handleCheckout(event)">
-                <input type="text" id="cust-name" placeholder="Full Name" required>
-                <input type="tel" id="cust-phone" placeholder="Phone Number (e.g., 03001234567)" required>
+                <label for="cust-name">Full Name</label>
+                <input type="text" id="cust-name" placeholder="Enter your full name" required>
+                
+                <label for="cust-phone">Phone Number</label>
+                <input type="tel" id="cust-phone" placeholder="Enter your phone number (e.g. 03001234567)" required>
+                
                 <button type="submit" class="submit-order-btn">Send Order via Email</button>
             </form>
         </div>
@@ -349,48 +392,67 @@
     <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 Madina Dry Fruit. All Rights Reserved.</p>
-        <p>Contact Owner: kaifkaif223036@gmail.com</p>
+        <p style="font-size: 0.85rem; color: #bdc3c7; margin-top: 4px;">Owner Email: kaifkaif223036@gmail.com | Phone: 03092700965</p>
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // PRODUCT DATA
-        const products = [
-            { id: 1, name: 'Special Mix Dry Fruit', price: 1400, unit: 'kg', image: 'https://i.ibb.co/zT6jntN9/IMG-20260904-WA0023.jpg' },
-            { id: 2, name: 'Anjeer (Figs)', price: 3000, unit: 'kg', image: 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=500&q=80' },
-            { id: 3, name: 'Kaju (Cashew)', price: 3600, unit: 'kg', image: 'https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=500&q=80' },
-            { id: 4, name: 'Pistachio', price: 5000, unit: 'kg', image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=80' },
-            { id: 5, name: 'Walnut', price: 2400, unit: 'kg', image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=500&q=80' },
-            { id: 6, name: 'Almond', price: 3400, unit: 'kg', image: 'https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=500&q=80' },
-            { id: 7, name: 'Honey Original', price: 6000, unit: 'kg', image: 'https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=500&q=80' }
+        // ALL 20 PRODUCTS DATA
+        const productsCategory1 = [
+            { id: 1, name: 'Dry Almonds', price: 3400, unit: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
+            { id: 2, name: 'Premium Figs (Anjeer)', price: 3000, unit: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
+            { id: 3, name: 'Xinjiang Thin Shell Walnut', price: 800, unit: 'kg', image: 'https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg' },
+            { id: 4, name: 'Shelled Walnuts', price: 2400, unit: 'kg', image: 'https://i.ibb.co/3mBrHR1m/images-8.jpg' },
+            { id: 5, name: 'Salted Pistachio', price: 3800, unit: 'kg', image: 'https://i.ibb.co/fG1sbp70/teated-18781-703935-151021070958804.jpg' },
+            { id: 6, name: 'Roasted Cashew (Kaju)', price: 3600, unit: 'kg', image: 'https://i.ibb.co/XZR8mWkn/z4m4491-TOuw-Od07d-RUq-Y3-Jc-Zcq-EF2r9sk-Aysf-Kw-K.jpg' },
+            { id: 7, name: 'Jumbo Pistachios', price: 5000, unit: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' }
         ];
 
+        const productsCategory2 = [
+            { id: 8, name: 'Dry Apricot (Khumani)', price: 1000, unit: 'kg', image: 'https://i.ibb.co/kj0mKHp/images-10.jpg' },
+            { id: 9, name: 'Black Raisins (Kishmish)', price: 1400, unit: 'kg', image: 'https://i.ibb.co/PG92LmTd/images-9.jpg' },
+            { id: 10, name: 'Green Raisins', price: 2900, unit: 'kg', image: 'https://i.ibb.co/cP0pgP2/images-3.jpg' },
+            { id: 11, name: 'Mix Dry Fruit Pack', price: 1400, unit: 'kg', image: 'https://i.ibb.co/VYCFk7Nv/Sdf266a4d4f9d476c97e9dbc95c2574470.jpg' },
+            { id: 12, name: 'Golden Raisins Extra Quality', price: 1600, unit: 'kg', image: 'https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg' },
+            { id: 13, name: 'Dried Plum (Aloo Bukhara)', price: 1200, unit: 'kg', image: 'https://i.ibb.co/fzG82C88/images-13.jpg' },
+            { id: 14, name: 'Pine Nuts (Chilgoza)', price: 3950, unit: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' }
+        ];
+
+        const productsCategory3 = [
+            { id: 15, name: 'Pure Raw Honey', price: 5600, unit: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg' },
+            { id: 16, name: 'Special Mix Kernels', price: 1950, unit: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
+            { id: 17, name: 'Imported Premium Collection', price: 9900, unit: 'kg', image: 'https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg' },
+            { id: 18, name: 'Fresh Zahidi Dates', price: 480, unit: 'kg', image: 'https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg' },
+            { id: 19, name: 'Khajoor Rabbi Dates', price: 800, unit: 'kg', image: 'https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp' },
+            { id: 20, name: 'Ajwa Dates Premium', price: 900, unit: 'kg', image: 'https://i.ibb.co/zttfBfF/product-jpeg.jpg' }
+        ];
+
+        const allProducts = [...productsCategory1, ...productsCategory2, ...productsCategory3];
         let cart = [];
 
-        // INITIALIZE EMAILJS
-        (function() {
-            // Replace with your EmailJS Public Key if setup (instructions below)
-            emailjs.init("YOUR_PUBLIC_KEY");
-        })();
-
-        // RENDER PRODUCTS
-        function renderProducts() {
-            const container = document.getElementById('product-container');
-            container.innerHTML = products.map(product => `
+        // RENDER CAROUSELS
+        function createProductCard(product) {
+            return `
                 <div class="product-card">
-                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/280x200?text=Product+Image'">
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/240x180?text=Madina+Dry+Fruit'">
                     <div class="product-details">
                         <div class="product-title">${product.name}</div>
                         <div class="product-price">Rs. ${product.price} / ${product.unit}</div>
                         <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
                     </div>
                 </div>
-            `).join('');
+            `;
+        }
+
+        function renderAllCarousels() {
+            document.getElementById('carousel-1').innerHTML = productsCategory1.map(createProductCard).join('');
+            document.getElementById('carousel-2').innerHTML = productsCategory2.map(createProductCard).join('');
+            document.getElementById('carousel-3').innerHTML = productsCategory3.map(createProductCard).join('');
         }
 
         // ADD TO CART
         function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
+            const product = allProducts.find(p => p.id === productId);
             const existingItem = cart.find(item => item.id === productId);
 
             if (existingItem) {
@@ -421,7 +483,7 @@
                 totalCost += itemTotal;
                 return `
                     <li class="cart-item">
-                        <span>${item.name} (x${item.quantity})</span>
+                        <span><strong>${item.name}</strong> (x${item.quantity})</span>
                         <span>Rs. ${itemTotal}</span>
                     </li>
                 `;
@@ -436,29 +498,38 @@
             modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
         }
 
-        // HANDLE FORM SUBMISSION (EMAIL ORDER)
+        // HANDLE CHECKOUT & EMAIL SENDING
         function handleCheckout(event) {
             event.preventDefault();
 
             if (cart.length === 0) {
-                alert('Your cart is empty!');
+                alert('Your cart is empty! Please add products first.');
                 return;
             }
 
             const name = document.getElementById('cust-name').value;
             const phone = document.getElementById('cust-phone').value;
             
-            let orderSummary = cart.map(item => `- ${item.name} x${item.quantity} = Rs. ${item.price * item.quantity}`).join('\n');
+            let orderItemsText = cart.map(item => `- ${item.name} (Qty: ${item.quantity} kg) = Rs. ${item.price * item.quantity}`).join('\n');
             const totalCost = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-            // Construct mailto link as a direct fallback
+            // Constructing Email Content
             const emailSubject = encodeURIComponent(`New Order from ${name} - Madina Dry Fruit`);
-            const emailBody = encodeURIComponent(`Customer Details:\nName: ${name}\nPhone: ${phone}\n\nOrder Details:\n${orderSummary}\n\nTotal Amount: Rs. ${totalCost}`);
+            const emailBody = encodeURIComponent(
+                `New Order Details:\n` +
+                `-----------------------------\n` +
+                `Customer Name: ${name}\n` +
+                `Customer Phone: ${phone}\n\n` +
+                `Items Ordered:\n${orderItemsText}\n\n` +
+                `-----------------------------\n` +
+                `Total Amount: Rs. ${totalCost}\n` +
+                `-----------------------------`
+            );
             
-            // Send via user's email client
+            // Trigger mailto link directly to owner email kaifkaif223036@gmail.com
             window.location.href = `mailto:kaifkaif223036@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
-            alert('Thank you for your order! Your email application will open to send the order details.');
+            alert('Order generated! Your default email app will now open. Please press Send to confirm your order.');
             cart = [];
             updateCartUI();
             toggleCart();
@@ -466,7 +537,7 @@
         }
 
         // INITIAL LOAD
-        renderProducts();
+        renderAllCarousels();
     </script>
 </body>
 </html>
