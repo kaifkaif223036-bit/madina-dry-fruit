@@ -51,12 +51,12 @@
             color: #ecf0f1;
         }
 
-        /* HERO SECTION WITH MIX NUTS & DRY FRUITS BACKGROUND */
+        /* HERO SECTION WITH AUTHENTIC MIX DRY FRUITS & NUTS BACKGROUND */
         .hero {
             position: relative;
             min-height: 65vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
-                        url('https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), 
+                        url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -67,29 +67,33 @@
         .hero-content h2 {
             font-size: 2.2rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
             font-weight: 700;
             line-height: 1.3;
         }
-        /* HIGHLIGHTED TAGLINE */
+
+        /* PROMINENTLY HIGHLIGHTED TAGLINE BADGE */
         .highlight-tag {
             display: inline-block;
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: #ffffff;
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 1.05rem;
-            font-weight: 700;
+            background: #f39c12;
+            background: linear-gradient(135deg, #f1c40f, #e67e22);
+            color: #111111;
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 800;
             margin-bottom: 1.5rem;
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.5);
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.6);
             letter-spacing: 0.5px;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 2px solid #ffffff;
+            text-transform: uppercase;
         }
+
         .shop-now-btn {
             background: #e67e22;
             color: #fff;
-            padding: 0.8rem 2.2rem;
-            font-size: 1.1rem;
+            padding: 0.85rem 2.4rem;
+            font-size: 1.15rem;
             border: none;
             border-radius: 25px;
             cursor: pointer;
@@ -97,7 +101,7 @@
             transition: 0.3s ease;
             font-weight: bold;
             display: inline-block;
-            box-shadow: 0 4px 10px rgba(230, 126, 34, 0.4);
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.5);
         }
         .shop-now-btn:hover {
             background: #d35400;
@@ -243,7 +247,7 @@
             text-decoration: none;
         }
 
-        /* CART MODAL & FORM */
+        /* CART MODAL & CUSTOMER ADDRESS FORM */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -348,12 +352,12 @@
         </div>
     </header>
 
-    <!-- HERO SECTION WITH NUTS & DRY FRUITS BACKGROUND -->
+    <!-- HERO SECTION WITH DRY FRUITS BACKGROUND -->
     <section class="hero">
         <div class="hero-content">
             <h2>Premium Quality All Dry Fruits Available</h2>
             <div>
-                <span class="highlight-tag">[fresh quality with best price]</span>
+                <span class="highlight-tag">Fresh quality with best price</span>
             </div>
             <a href="#products-start" class="shop-now-btn">Shop Now</a>
         </div>
