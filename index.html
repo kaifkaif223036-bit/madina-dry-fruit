@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madina Dry Fruit - Fresh Quality with Best Price</title>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS SDK for free email sending -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <style>
+        /* RESET & BASE STYLES */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAVBAR */
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo h1 {
+            font-size: 1.5rem;
+            color: #f39c12;
+        }
+        .logo p {
+            font-size: 0.8rem;
+            color: #ecf0f1;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 2rem;
+        }
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .shop-now-btn {
+            background: #e67e22;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s ease;
+            font-weight: bold;
+        }
+        .shop-now-btn:hover {
+            background: #d35400;
+        }
+
+        /* PRODUCTS CAROUSEL SECTION */
+        .products-section {
+            padding: 3rem 5%;
+        }
+        .products-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        .carousel-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px 5px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .carousel-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .carousel-container::-webkit-scrollbar-thumb {
+            background: #e67e22;
+            border-radius: 10px;
+        }
+        .product-card {
+            flex: 0 0 280px;
+            scroll-snap-align: start;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-details {
+            padding: 1rem;
+            text-align: center;
+        }
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .product-price {
+            color: #e67e22;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .add-to-cart-btn {
+            background: #27ae60;
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 0.6rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .add-to-cart-btn:hover {
+            background: #219150;
+        }
+
+        /* FLOATING BUTTONS */
+        .floating-cart {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background: #e67e22;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .cart-count {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: red;
+            color: white;
+            font-size: 0.8rem;
+            padding: 2px 7px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        /* CART MODAL & FORM */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 1.5rem;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 10px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+        }
+        .cart-items-list {
+            list-style: none;
+            margin: 1rem 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .cart-total {
+            font-weight: bold;
+            text-align: right;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .checkout-form input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-order-btn {
+            background: #e67e22;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">
+            <h1>Madina Dry Fruit</h1>
+            <p>Fresh Quality with Best Price</p>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Premium Quality Dry Fruits</h2>
+            <p>Fresh quality with best price delivered straight to your home</p>
+            <a href="#products" class="shop-now-btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- PRODUCTS CAROUSEL -->
+    <section class="products-section" id="products">
+        <h2>Our Featured Products</h2>
+        <div class="carousel-container" id="product-container">
+            <!-- Products rendered dynamically via JS -->
+        </div>
+    </section>
+
+    <!-- FLOATING CART BUTTON -->
+    <div class="floating-cart" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/03092700965" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- CART MODAL & CHECKOUT FORM -->
+    <div class="modal-overlay" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="toggleCart()">&times;</span>
+            <h2>Your Shopping Cart</h2>
+            
+            <ul class="cart-items-list" id="cart-items">
+                <li>Your cart is empty.</li>
+            </ul>
+            <div class="cart-total" id="cart-total">Total: Rs. 0</div>
+
+            <h3>Customer Details</h3>
+            <form class="checkout-form" id="checkout-form" onsubmit="handleCheckout(event)">
+                <input type="text" id="cust-name" placeholder="Full Name" required>
+                <input type="tel" id="cust-phone" placeholder="Phone Number (e.g., 03001234567)" required>
+                <button type="submit" class="submit-order-btn">Send Order via Email</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Madina Dry Fruit. All Rights Reserved.</p>
+        <p>Contact Owner: kaifkaif223036@gmail.com</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // PRODUCT DATA
+        const products = [
+            { id: 1, name: 'Special Mix Dry Fruit', price: 1400, unit: 'kg', image: 'https://i.ibb.co/zT6jntN9/IMG-20260904-WA0023.jpg' },
+            { id: 2, name: 'Anjeer (Figs)', price: 3000, unit: 'kg', image: 'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=500&q=80' },
+            { id: 3, name: 'Kaju (Cashew)', price: 3600, unit: 'kg', image: 'https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=500&q=80' },
+            { id: 4, name: 'Pistachio', price: 5000, unit: 'kg', image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=80' },
+            { id: 5, name: 'Walnut', price: 2400, unit: 'kg', image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=500&q=80' },
+            { id: 6, name: 'Almond', price: 3400, unit: 'kg', image: 'https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=500&q=80' },
+            { id: 7, name: 'Honey Original', price: 6000, unit: 'kg', image: 'https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=500&q=80' }
+        ];
+
+        let cart = [];
+
+        // INITIALIZE EMAILJS
+        (function() {
+            // Replace with your EmailJS Public Key if setup (instructions below)
+            emailjs.init("YOUR_PUBLIC_KEY");
+        })();
+
+        // RENDER PRODUCTS
+        function renderProducts() {
+            const container = document.getElementById('product-container');
+            container.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/280x200?text=Product+Image'">
+                    <div class="product-details">
+                        <div class="product-title">${product.name}</div>
+                        <div class="product-price">Rs. ${product.price} / ${product.unit}</div>
+                        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ADD TO CART
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            updateCartUI();
+        }
+
+        // UPDATE CART DISPLAY
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').innerText = totalCount;
+
+            const cartList = document.getElementById('cart-items');
+            const totalElement = document.getElementById('cart-total');
+
+            if (cart.length === 0) {
+                cartList.innerHTML = '<li>Your cart is empty.</li>';
+                totalElement.innerText = 'Total: Rs. 0';
+                return;
+            }
+
+            let totalCost = 0;
+            cartList.innerHTML = cart.map(item => {
+                const itemTotal = item.price * item.quantity;
+                totalCost += itemTotal;
+                return `
+                    <li class="cart-item">
+                        <span>${item.name} (x${item.quantity})</span>
+                        <span>Rs. ${itemTotal}</span>
+                    </li>
+                `;
+            }).join('');
+
+            totalElement.innerText = `Total: Rs. ${totalCost}`;
+        }
+
+        // TOGGLE CART MODAL
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // HANDLE FORM SUBMISSION (EMAIL ORDER)
+        function handleCheckout(event) {
+            event.preventDefault();
+
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            
+            let orderSummary = cart.map(item => `- ${item.name} x${item.quantity} = Rs. ${item.price * item.quantity}`).join('\n');
+            const totalCost = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            // Construct mailto link as a direct fallback
+            const emailSubject = encodeURIComponent(`New Order from ${name} - Madina Dry Fruit`);
+            const emailBody = encodeURIComponent(`Customer Details:\nName: ${name}\nPhone: ${phone}\n\nOrder Details:\n${orderSummary}\n\nTotal Amount: Rs. ${totalCost}`);
+            
+            // Send via user's email client
+            window.location.href = `mailto:kaifkaif223036@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+
+            alert('Thank you for your order! Your email application will open to send the order details.');
+            cart = [];
+            updateCartUI();
+            toggleCart();
+            document.getElementById('checkout-form').reset();
+        }
+
+        // INITIAL LOAD
+        renderProducts();
+    </script>
+</body>
+</html>
