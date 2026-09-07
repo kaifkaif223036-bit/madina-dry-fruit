@@ -324,7 +324,7 @@
     <header>
         <div class="logo">
             <h1>Madina Dry Fruit</h1>
-            <p>[fresh quality with best price]</p>
+            <p>fresh quality with best price</p>
         </div>
     </header>
 
@@ -332,7 +332,7 @@
     <section class="hero">
         <div class="hero-content">
             <h2>Premium Dry Fruits & Nuts</h2>
-            <p>[Fresh Quality With Best Price]</p>
+            <p>fresh quality with best price</p>
             <a href="#products-start" class="shop-now-btn">Shop Now</a>
         </div>
     </section>
@@ -340,16 +340,16 @@
     <!-- PRODUCTS SECTION WITH MULTIPLE CAROUSELS -->
     <section class="products-section" id="products-start">
         
-        <!-- CAROUSEL 1: PREMIUM DRY FRUITS -->
-        <h3 class="carousel-title">Premium Dry Fruits & Nuts</h3>
+        <!-- CAROUSEL 1: DRY FRUITS & NUTS -->
+        <h3 class="carousel-title">Dry Fruits & Nuts</h3>
         <div class="carousel-container" id="carousel-1"></div>
 
-        <!-- CAROUSEL 2: DATES & SPECIALITIES -->
-        <h3 class="carousel-title">Fresh Dates & Dried Delights</h3>
+        <!-- CAROUSEL 2: RAISINS, DATES & DELIGHTS -->
+        <h3 class="carousel-title">Raisins, Figs & Dates</h3>
         <div class="carousel-container" id="carousel-2"></div>
 
-        <!-- CAROUSEL 3: HONEY & MIXED SELECTIONS -->
-        <h3 class="carousel-title">Organic Honey & Special Collections</h3>
+        <!-- CAROUSEL 3: SPECIALITIES & HONEY -->
+        <h3 class="carousel-title">Organic Honey & Special Items</h3>
         <div class="carousel-container" id="carousel-3"></div>
 
     </section>
@@ -382,7 +382,7 @@
                 <input type="text" id="cust-name" placeholder="Enter your full name" required>
                 
                 <label for="cust-phone">Phone Number</label>
-                <input type="tel" id="cust-phone" placeholder="Enter your phone number (e.g. 03001234567)" required>
+                <input type="tel" id="cust-phone" placeholder="Enter your phone number (e.g. 03092700965)" required>
                 
                 <button type="submit" class="submit-order-btn">Send Order via Email</button>
             </form>
@@ -397,34 +397,34 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // ALL 20 PRODUCTS DATA
+        // CORRECTED PRODUCT NAMES & MATCHED IMAGE URLS
         const productsCategory1 = [
-            { id: 1, name: 'Dry Almonds', price: 3400, unit: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
-            { id: 2, name: 'Premium Figs (Anjeer)', price: 3000, unit: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
-            { id: 3, name: 'Xinjiang Thin Shell Walnut', price: 800, unit: 'kg', image: 'https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg' },
-            { id: 4, name: 'Shelled Walnuts', price: 2400, unit: 'kg', image: 'https://i.ibb.co/3mBrHR1m/images-8.jpg' },
-            { id: 5, name: 'Salted Pistachio', price: 3800, unit: 'kg', image: 'https://i.ibb.co/fG1sbp70/teated-18781-703935-151021070958804.jpg' },
+            { id: 1, name: 'Desi Almond Giri (Badam)', price: 3400, unit: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
+            { id: 2, name: 'Dried Figs (Anjeer)', price: 3000, unit: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
+            { id: 3, name: 'Xinjiang Thin Shell Walnut (Akhrot)', price: 800, unit: 'kg', image: 'https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg' },
+            { id: 4, name: 'Walnut Kernel (Akhrot Giri)', price: 2400, unit: 'kg', image: 'https://i.ibb.co/3mBrHR1m/images-8.jpg' },
+            { id: 5, name: 'Salted Pistachio (Pista)', price: 3800, unit: 'kg', image: 'https://i.ibb.co/fG1sbp70/teated-18781-703935-151021070958804.jpg' },
             { id: 6, name: 'Roasted Cashew (Kaju)', price: 3600, unit: 'kg', image: 'https://i.ibb.co/XZR8mWkn/z4m4491-TOuw-Od07d-RUq-Y3-Jc-Zcq-EF2r9sk-Aysf-Kw-K.jpg' },
-            { id: 7, name: 'Jumbo Pistachios', price: 5000, unit: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' }
+            { id: 7, name: 'Plain Pistachio Kernel (Pista Giri)', price: 5000, unit: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' }
         ];
 
         const productsCategory2 = [
             { id: 8, name: 'Dry Apricot (Khumani)', price: 1000, unit: 'kg', image: 'https://i.ibb.co/kj0mKHp/images-10.jpg' },
-            { id: 9, name: 'Black Raisins (Kishmish)', price: 1400, unit: 'kg', image: 'https://i.ibb.co/PG92LmTd/images-9.jpg' },
-            { id: 10, name: 'Green Raisins', price: 2900, unit: 'kg', image: 'https://i.ibb.co/cP0pgP2/images-3.jpg' },
-            { id: 11, name: 'Mix Dry Fruit Pack', price: 1400, unit: 'kg', image: 'https://i.ibb.co/VYCFk7Nv/Sdf266a4d4f9d476c97e9dbc95c2574470.jpg' },
-            { id: 12, name: 'Golden Raisins Extra Quality', price: 1600, unit: 'kg', image: 'https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg' },
+            { id: 9, name: 'Black Raisins (Kala Kishmish)', price: 1400, unit: 'kg', image: 'https://i.ibb.co/PG92LmTd/images-9.jpg' },
+            { id: 10, name: 'Long Green Raisins (Sundekhani Kishmish)', price: 2900, unit: 'kg', image: 'https://i.ibb.co/cP0pgP2/images-3.jpg' },
+            { id: 11, name: 'Mix Dry Fruit', price: 1400, unit: 'kg', image: 'https://i.ibb.co/VYCFk7Nv/Sdf266a4d4f9d476c97e9dbc95c2574470.jpg' },
+            { id: 12, name: 'Golden Raisins (Sunderkhani)', price: 1600, unit: 'kg', image: 'https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg' },
             { id: 13, name: 'Dried Plum (Aloo Bukhara)', price: 1200, unit: 'kg', image: 'https://i.ibb.co/fzG82C88/images-13.jpg' },
-            { id: 14, name: 'Pine Nuts (Chilgoza)', price: 3950, unit: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' }
+            { id: 14, name: 'Pine Nuts With Shell (Chilgoza)', price: 3950, unit: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' }
         ];
 
         const productsCategory3 = [
-            { id: 15, name: 'Pure Raw Honey', price: 5600, unit: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg' },
-            { id: 16, name: 'Special Mix Kernels', price: 1950, unit: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
-            { id: 17, name: 'Imported Premium Collection', price: 9900, unit: 'kg', image: 'https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg' },
-            { id: 18, name: 'Fresh Zahidi Dates', price: 480, unit: 'kg', image: 'https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg' },
-            { id: 19, name: 'Khajoor Rabbi Dates', price: 800, unit: 'kg', image: 'https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp' },
-            { id: 20, name: 'Ajwa Dates Premium', price: 900, unit: 'kg', image: 'https://i.ibb.co/zttfBfF/product-jpeg.jpg' }
+            { id: 15, name: 'Pure Raw Honey (Chota Shehed)', price: 5600, unit: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg' },
+            { id: 16, name: 'Mix Seeds & Kernels', price: 1950, unit: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
+            { id: 17, name: 'Chilgoza Kernel (Chilgoza Giri)', price: 9900, unit: 'kg', image: 'https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg' },
+            { id: 18, name: 'Fresh Zahidi Dates (Zahidi Khajoor)', price: 480, unit: 'kg', image: 'https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg' },
+            { id: 19, name: 'Rabbi Dates (Rabbi Khajoor)', price: 800, unit: 'kg', image: 'https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp' },
+            { id: 20, name: 'Ajwa Dates Premium (Ajwa Khajoor)', price: 900, unit: 'kg', image: 'https://i.ibb.co/zttfBfF/product-jpeg.jpg' }
         ];
 
         const allProducts = [...productsCategory1, ...productsCategory2, ...productsCategory3];
