@@ -20,7 +20,6 @@
             scroll-behavior: smooth;
         }
         body {
-            /* Warm Mix Dry Fruits Ambient Background */
             background-color: #fdfaf6;
             background-image: radial-gradient(#e67e22 0.5px, transparent 0.5px), radial-gradient(#d35400 0.5px, #fdfaf6 0.5px);
             background-size: 20px 20px;
@@ -52,34 +51,44 @@
             color: #ecf0f1;
         }
 
-        /* HERO SECTION - MIX DRY FRUITS BACKGROUND */
+        /* HERO SECTION WITH MIX NUTS & DRY FRUITS BACKGROUND */
         .hero {
             position: relative;
-            min-height: 60vh;
+            min-height: 65vh;
             background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
-                        url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
-            padding: 2rem 1rem;
+            padding: 2.5rem 1rem;
         }
         .hero-content h2 {
-            font-size: 2.3rem;
-            margin-bottom: 0.8rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+            font-weight: 700;
+            line-height: 1.3;
         }
-        .hero-content p {
-            font-size: 1.1rem;
+        /* HIGHLIGHTED TAGLINE */
+        .highlight-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: #ffffff;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 1.05rem;
+            font-weight: 700;
             margin-bottom: 1.5rem;
-            color: #f1c40f;
-            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.5);
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255,255,255,0.3);
         }
         .shop-now-btn {
             background: #e67e22;
             color: #fff;
-            padding: 0.8rem 2rem;
+            padding: 0.8rem 2.2rem;
             font-size: 1.1rem;
             border: none;
             border-radius: 25px;
@@ -105,10 +114,11 @@
             font-size: 1.35rem;
             border-left: 5px solid #e67e22;
             padding-left: 10px;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.85);
             display: inline-block;
             padding-right: 15px;
             border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
         .carousel-container {
             display: flex;
@@ -233,7 +243,7 @@
             text-decoration: none;
         }
 
-        /* CART MODAL & CUSTOMER ADDRESS FORM */
+        /* CART MODAL & FORM */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -338,11 +348,13 @@
         </div>
     </header>
 
-    <!-- HERO SECTION WITH MIX DRY FRUITS BACKGROUND -->
+    <!-- HERO SECTION WITH NUTS & DRY FRUITS BACKGROUND -->
     <section class="hero">
         <div class="hero-content">
-            <h2>Premium Quality Mix Dry Fruits</h2>
-            <p>[fresh quality with best price]</p>
+            <h2>Premium Quality All Dry Fruits Available</h2>
+            <div>
+                <span class="highlight-tag">[fresh quality with best price]</span>
+            </div>
             <a href="#products-start" class="shop-now-btn">Shop Now</a>
         </div>
     </section>
@@ -375,7 +387,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- CART MODAL WITH CUSTOMER ADDRESS -->
+    <!-- CART MODAL & CUSTOMER DETAILS -->
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleCart()">&times;</span>
@@ -410,7 +422,6 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // EXACT PRODUCT LIST ACCORDING TO USER REQUIREMENTS
         const productsCategory1 = [
             { id: 1, name: 'American Almond Giri', price: 3400, unit: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
             { id: 2, name: 'Magaz Badam Gurbandi', price: 3000, unit: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
@@ -443,7 +454,6 @@
         const allProducts = [...productsCategory1, ...productsCategory2, ...productsCategory3];
         let cart = [];
 
-        // RENDER CAROUSELS
         function createProductCard(product) {
             return `
                 <div class="product-card">
@@ -463,7 +473,6 @@
             document.getElementById('carousel-3').innerHTML = productsCategory3.map(createProductCard).join('');
         }
 
-        // ADD TO CART LOGIC
         function addToCart(productId) {
             const product = allProducts.find(p => p.id === productId);
             const existingItem = cart.find(item => item.id === productId);
@@ -476,7 +485,6 @@
             updateCartUI();
         }
 
-        // UPDATE CART UI DISPLAY
         function updateCartUI() {
             const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
             document.getElementById('cart-count').innerText = totalCount;
@@ -505,13 +513,11 @@
             totalElement.innerText = `Total: Rs. ${totalCost}`;
         }
 
-        // TOGGLE CART MODAL
         function toggleCart() {
             const modal = document.getElementById('cart-modal');
             modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
         }
 
-        // CHECKOUT & EMAIL LOGIC WITH CUSTOMER ADDRESS
         function handleCheckout(event) {
             event.preventDefault();
 
@@ -527,7 +533,6 @@
             let orderItemsText = cart.map(item => `- ${item.name} (Qty: ${item.quantity} kg) = Rs. ${item.price * item.quantity}`).join('\n');
             const totalCost = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-            // EMAIL CONTENT
             const emailSubject = encodeURIComponent(`New Order from ${name} - Madina Dry Fruit`);
             const emailBody = encodeURIComponent(
                 `New Order Details:\n` +
@@ -541,7 +546,6 @@
                 `-----------------------------`
             );
             
-            // OPEN EMAIL APP TO SEND ORDER TO OWNER
             window.location.href = `mailto:kaifkaif223036@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
             alert('Order details prepared! Your email application will open now. Press Send to confirm your order.');
@@ -551,7 +555,6 @@
             document.getElementById('checkout-form').reset();
         }
 
-        // INITIALIZE RENDER
         renderAllCarousels();
     </script>
 </body>
