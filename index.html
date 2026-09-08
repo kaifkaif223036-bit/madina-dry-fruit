@@ -51,7 +51,7 @@
             color: #ecf0f1;
         }
 
-        /* HERO SECTION WITH AUTHENTIC MIX DRY FRUITS BACKGROUND */
+        /* HERO SECTION */
         .hero {
             position: relative;
             min-height: 65vh;
@@ -282,7 +282,7 @@
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
             padding: 0.8rem 0;
-            max-height: 240px;
+            max-height: 200px;
             overflow-y: auto;
         }
         .cart-item {
@@ -343,7 +343,7 @@
         .cart-total {
             font-weight: bold;
             text-align: right;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             color: #2c3e50;
             font-size: 1.1rem;
         }
@@ -354,7 +354,7 @@
             display: block;
             margin-bottom: 0.3rem;
         }
-        .checkout-form input, .checkout-form textarea {
+        .checkout-form input, .checkout-form textarea, .checkout-form select {
             width: 100%;
             padding: 0.7rem;
             margin-bottom: 0.9rem;
@@ -362,20 +362,61 @@
             border-radius: 6px;
             font-size: 0.95rem;
         }
-        .submit-order-btn {
-            background: #e67e22;
+        
+        .bank-details-box {
+            display: none;
+            background: #fdf3e7;
+            border: 1px dashed #e67e22;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .btn-whatsapp {
+            background: #25d366;
             color: white;
             border: none;
-            width: 100%;
+            flex: 1;
             padding: 0.85rem;
             border-radius: 6px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             cursor: pointer;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             transition: 0.2s;
         }
-        .submit-order-btn:hover {
-            background: #d35400;
+        .btn-whatsapp:hover {
+            background: #1eb854;
+        }
+        .btn-email {
+            background: #3498db;
+            color: white;
+            border: none;
+            flex: 1;
+            padding: 0.85rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+        .btn-email:hover {
+            background: #2980b9;
         }
 
         /* FOOTER */
@@ -433,11 +474,11 @@
     </div>
 
     <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/03092700965" class="whatsapp-float" target="_blank" title="Contact on WhatsApp">
+    <a href="https://wa.me/923092700965" class="whatsapp-float" target="_blank" title="Contact on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- CART MODAL WITH 250G STEP INCREMENT -->
+    <!-- CART MODAL WITH PAYMENT OPTIONS & WHATSAPP / EMAIL -->
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleCart()">&times;</span>
@@ -448,8 +489,8 @@
             </div>
             <div class="cart-total" id="cart-total">Total: Rs. 0</div>
 
-            <h3 style="margin-bottom: 0.6rem; color: #2c3e50;">Customer Details</h3>
-            <form class="checkout-form" id="checkout-form" onsubmit="handleCheckout(event)">
+            <h3 style="margin-bottom: 0.6rem; color: #2c3e50;">Customer & Delivery Details</h3>
+            <form class="checkout-form" id="checkout-form" onsubmit="event.preventDefault();">
                 <label for="cust-name">Full Name</label>
                 <input type="text" id="cust-name" placeholder="Enter full name" required>
                 
@@ -457,9 +498,30 @@
                 <input type="tel" id="cust-phone" placeholder="Enter phone number (e.g. 03092700965)" required>
                 
                 <label for="cust-address">Delivery Address</label>
-                <textarea id="cust-address" rows="3" placeholder="Enter complete home or delivery address" required></textarea>
-                
-                <button type="submit" class="submit-order-btn">Send Order via Email</button>
+                <textarea id="cust-address" rows="2" placeholder="Enter complete home or delivery address" required></textarea>
+
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method" onchange="toggleBankDetails()">
+                    <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
+                    <option value="Online Bank Transfer / EasyPaisa">Online Payment (Bank Transfer / EasyPaisa)</option>
+                </select>
+
+                <!-- BANK & EASYPAISA DETAILS BOX -->
+                <div class="bank-details-box" id="bank-info">
+                    <strong style="color:#d35400; font-size:0.95rem;">Payment Account Details:</strong><br>
+                    • <strong>EasyPaisa Account:</strong> 03467224956<br>
+                    • <strong>Meezan Bank Account:</strong> 98280106636773<br>
+                    <small style="display:block; margin-top:4px; color:#555;"><i>* Payment bhejne ke baad screenshot WhatsApp par zaroor share karein.</i></small>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" class="btn-whatsapp" onclick="processOrder('whatsapp')">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Order
+                    </button>
+                    <button type="button" class="btn-email" onclick="processOrder('email')">
+                        <i class="fas fa-envelope"></i> Email Order
+                    </button>
+                </div>
             </form>
         </div>
     </div>
@@ -523,7 +585,6 @@
             document.getElementById('carousel-3').innerHTML = productsCategory3.map(createProductCard).join('');
         }
 
-        // ADD TO CART (STANDARD START = 1 KG)
         function addToCart(productId) {
             const product = allProducts.find(p => p.id === productId);
             const existingItem = cart.find(item => item.id === productId);
@@ -536,7 +597,6 @@
             updateCartUI();
         }
 
-        // INCREASE QTY BY 0.25 KG (+ BUTTON)
         function increaseQty(productId) {
             const item = cart.find(item => item.id === productId);
             if (item) {
@@ -545,7 +605,6 @@
             }
         }
 
-        // DECREASE QTY BY 0.25 KG (- BUTTON, MINIMUM 0.25 KG)
         function decreaseQty(productId) {
             const item = cart.find(item => item.id === productId);
             if (item) {
@@ -559,13 +618,11 @@
             }
         }
 
-        // REMOVE ITEM ENTIRELY
         function removeFromCart(productId) {
             cart = cart.filter(item => item.id !== productId);
             updateCartUI();
         }
 
-        // FORMAT DISPLAY TEXT FOR WEIGHT (E.G. 250g or 1.5 kg)
         function formatQuantity(qty) {
             if (qty < 1) {
                 return `${Math.round(qty * 1000)} g`;
@@ -574,10 +631,8 @@
             }
         }
 
-        // UPDATE CART INTERFACE
         function updateCartUI() {
-            const totalItemsCount = cart.length;
-            document.getElementById('cart-count').innerText = totalItemsCount;
+            document.getElementById('cart-count').innerText = cart.length;
 
             const cartList = document.getElementById('cart-items');
             const totalElement = document.getElementById('cart-total');
@@ -599,10 +654,10 @@
                             <span style="color:#d35400;">Rs. ${item.price}/kg &times; ${formatQuantity(item.quantity)} = <strong>Rs. ${itemTotal}</strong></span>
                         </div>
                         <div class="qty-controls">
-                            <button class="qty-btn" onclick="decreaseQty(${item.id})" title="Minus 250g">-</button>
-                            <span style="font-weight:bold; min-width:55px; text-align:center; font-size:0.85rem;">${formatQuantity(item.quantity)}</span>
-                            <button class="qty-btn" onclick="increaseQty(${item.id})" title="Plus 250g">+</button>
-                            <button class="delete-btn" onclick="removeFromCart(${item.id})" title="Remove Item"><i class="fas fa-trash-alt"></i></button>
+                            <button class="qty-btn" onclick="decreaseQty(${item.id})">-</button>
+                            <span style="font-weight:bold; min-width:50px; text-align:center; font-size:0.85rem;">${formatQuantity(item.quantity)}</span>
+                            <button class="qty-btn" onclick="increaseQty(${item.id})">+</button>
+                            <button class="delete-btn" onclick="removeFromCart(${item.id})"><i class="fas fa-trash-alt"></i></button>
                         </div>
                     </div>
                 `;
@@ -616,41 +671,75 @@
             modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
         }
 
-        function handleCheckout(event) {
-            event.preventDefault();
+        function toggleBankDetails() {
+            const selectVal = document.getElementById('payment-method').value;
+            const bankBox = document.getElementById('bank-info');
+            if (selectVal.includes('Online')) {
+                bankBox.style.display = 'block';
+            } else {
+                bankBox.style.display = 'none';
+            }
+        }
 
+        function processOrder(type) {
             if (cart.length === 0) {
                 alert('Your cart is empty! Please add products first.');
                 return;
             }
 
-            const name = document.getElementById('cust-name').value;
-            const phone = document.getElementById('cust-phone').value;
-            const address = document.getElementById('cust-address').value;
-            
-            let orderItemsText = cart.map(item => `- ${item.name} (Weight: ${formatQuantity(item.quantity)}) = Rs. ${Math.round(item.price * item.quantity)}`).join('\n');
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+            const payment = document.getElementById('payment-method').value;
+
+            if (!name || !phone || !address) {
+                alert('Please fill out Name, Phone, and Address fields.');
+                return;
+            }
+
+            let orderItemsText = cart.map(item => `• ${item.name} (${formatQuantity(item.quantity)}) = Rs. ${Math.round(item.price * item.quantity)}`).join('\n');
             const totalCost = cart.reduce((sum, item) => sum + Math.round(item.price * item.quantity), 0);
 
-            const emailSubject = encodeURIComponent(`New Order from ${name} - Madina Dry Fruit`);
-            const emailBody = encodeURIComponent(
-                `New Order Details:\n` +
-                `-----------------------------\n` +
-                `Customer Name: ${name}\n` +
-                `Customer Phone: ${phone}\n` +
-                `Delivery Address: ${address}\n\n` +
-                `Items Ordered:\n${orderItemsText}\n\n` +
-                `-----------------------------\n` +
-                `Total Amount: Rs. ${totalCost}\n` +
-                `-----------------------------`
-            );
-            
-            window.location.href = `mailto:kaifkaif223036@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+            if (type === 'whatsapp') {
+                const message = 
+                    `🛒 *NEW ORDER - MADINA DRY FRUIT*\n` +
+                    `-----------------------------------\n` +
+                    `👤 *Customer Name:* ${name}\n` +
+                    `📞 *Phone Number:* ${phone}\n` +
+                    `📍 *Address:* ${address}\n` +
+                    `💳 *Payment Method:* ${payment}\n` +
+                    `-----------------------------------\n` +
+                    `📦 *ITEMS ORDERED:*\n${orderItemsText}\n` +
+                    `-----------------------------------\n` +
+                    `💰 *TOTAL AMOUNT:* Rs. ${totalCost}\n` +
+                    `-----------------------------------`;
 
-            alert('Order details prepared! Your email application will open now. Press Send to confirm your order.');
+                const whatsappUrl = `https://wa.me/923092700965?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            } 
+            else if (type === 'email') {
+                const emailSubject = encodeURIComponent(`New Order from ${name} - Madina Dry Fruit`);
+                const emailBody = encodeURIComponent(
+                    `New Order Details:\n` +
+                    `-----------------------------\n` +
+                    `Customer Name: ${name}\n` +
+                    `Customer Phone: ${phone}\n` +
+                    `Delivery Address: ${address}\n` +
+                    `Payment Method: ${payment}\n\n` +
+                    `Items Ordered:\n${orderItemsText}\n\n` +
+                    `-----------------------------\n` +
+                    `Total Amount: Rs. ${totalCost}\n` +
+                    `-----------------------------`
+                );
+                
+                window.location.href = `mailto:kaifkaif223036@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+            }
+
             cart = [];
             updateCartUI();
             toggleCart();
             document.getElementById('checkout-form').reset();
+            document.getElementById('bank-info').style.display = 'none';
         }
 
         renderAllCarousels();
