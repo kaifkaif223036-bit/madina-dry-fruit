@@ -381,6 +381,19 @@
             font-size: 0.95rem;
         }
 
+        /* BANK / EASYPAISA INFO DISPLAY BOX */
+        .bank-details-box {
+            display: none;
+            background: #fdf3e7;
+            border: 1px dashed #e67e22;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+
         .action-buttons {
             display: flex;
             gap: 10px;
@@ -484,7 +497,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- CART MODAL WITH CUSTOMER FORM & EMAIL / WHATSAPP ORDER -->
+    <!-- CART MODAL WITH PAYMENT OPTIONS & EMAIL / WHATSAPP ORDER -->
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleCart()">&times;</span>
@@ -526,6 +539,21 @@
 
                 <label for="cust-address">Delivery Address</label>
                 <textarea id="cust-address" rows="2" placeholder="Street or House Address" required></textarea>
+
+                <!-- PAYMENT METHOD SELECTOR -->
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method" onchange="toggleBankDetails()">
+                    <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
+                    <option value="Online Payment (Bank / EasyPaisa)">Online Payment (Bank Transfer / EasyPaisa)</option>
+                </select>
+
+                <!-- BANK & EASYPAISA DETAILS BOX -->
+                <div class="bank-details-box" id="bank-info">
+                    <strong style="color:#d35400; font-size:0.95rem;">Payment Account Details:</strong><br>
+                    • <strong>EasyPaisa:</strong> 03467224956<br>
+                    • <strong>Meezan Bank:</strong> 98280106636773<br>
+                    <small style="display:block; margin-top:4px; color:#555;"><i>* Payment bhejne ke baad screenshot receipt zaroor share karein.</i></small>
+                </div>
 
                 <div class="action-buttons">
                     <button type="button" class="btn-email" onclick="processOrder('email')">
@@ -742,6 +770,16 @@
             modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
         }
 
+        function toggleBankDetails() {
+            const selectVal = document.getElementById('payment-method').value;
+            const bankBox = document.getElementById('bank-info');
+            if (selectVal.includes('Online')) {
+                bankBox.style.display = 'block';
+            } else {
+                bankBox.style.display = 'none';
+            }
+        }
+
         function processOrder(type) {
             if (cart.length === 0) {
                 alert('Your cart is empty! Please add products first.');
@@ -754,6 +792,7 @@
             const zoneSelect = document.getElementById('delivery-zone');
             const zoneText = zoneSelect.options[zoneSelect.selectedIndex].text;
             const deliveryFee = parseInt(zoneSelect.value);
+            const payment = document.getElementById('payment-method').value;
 
             if (!name || !phone || !address) {
                 alert('Please fill out Name, Phone, and Address fields.');
@@ -773,7 +812,8 @@
                     `Customer Name: ${name}\n` +
                     `Phone Number: ${phone}\n` +
                     `Delivery Option: ${zoneText}\n` +
-                    `Delivery Address: ${address}\n\n` +
+                    `Delivery Address: ${address}\n` +
+                    `Payment Method: ${payment}\n\n` +
                     `Items Ordered:\n${orderItemsText}\n\n` +
                     `-----------------------------\n` +
                     `Subtotal: Rs. ${subtotalCost}\n` +
@@ -792,6 +832,7 @@
                     `📞 *Phone Number:* ${phone}\n` +
                     `🚚 *Delivery Option:* ${zoneText}\n` +
                     `📍 *Address:* ${address}\n` +
+                    `💳 *Payment Method:* ${payment}\n` +
                     `-----------------------------------\n` +
                     `📦 *ITEMS ORDERED:*\n${orderItemsText}\n` +
                     `-----------------------------------\n` +
@@ -808,6 +849,7 @@
             updateCartUI();
             toggleCart();
             document.getElementById('checkout-form').reset();
+            document.getElementById('bank-info').style.display = 'none';
         }
 
         renderAllCarousels();
