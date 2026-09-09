@@ -471,8 +471,8 @@
     <!-- PRODUCTS CAROUSELS -->
     <section class="products-section" id="products-start">
         
-        <!-- ROW 1 (SEEDS, HERBS & ALMONDS) -->
-        <h3 class="carousel-title">Organic Seeds, Herbs & Nuts</h3>
+        <!-- ROW 1 (ALMONDS, WALNUTS, CASHEWS & PISTACHIO) -->
+        <h3 class="carousel-title">Almonds, Walnuts & Cashews</h3>
         <div class="carousel-container" id="carousel-1"></div>
 
         <!-- ROW 2 (DATES, APRICOTS, FIGS & RAISINS) -->
@@ -574,14 +574,8 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Updated products array with newly replaced image links
+        // ROW 1: Almonds, Walnuts, Cashews & Pistachio
         const productsCategory1 = [
-            { id: 101, name: 'Pumpkin Seeds (Kadoo Ke Beej)', price: 2200, displayPrice: '550 / 250g', unitType: 'kg', image: 'https://raw.githubusercontent.com/kaifkaif223036-gmail/madina-dry-fruit/main/images/1000145029.jpg' },
-            { id: 102, name: 'Magaz Suraj Mukhi (Sunflower Seeds)', price: 1000, displayPrice: '250 / 250g', unitType: 'kg', image: 'https://raw.githubusercontent.com/kaifkaif223036-gmail/madina-dry-fruit/main/images/1000145030.jpg' },
-            { id: 103, name: 'White Til (White Sesame)', price: 800, displayPrice: '200 / 250g', unitType: 'kg', image: 'https://raw.githubusercontent.com/kaifkaif223036-gmail/madina-dry-fruit/main/images/1000145031.jpg' },
-            { id: 105, name: 'Sfed Musli India', price: 150, displayPrice: '150 / 10g (Min 50g)', unitType: 'gram10', minQty: 50, stepQty: 10, image: 'https://raw.githubusercontent.com/kaifkaif223036-gmail/madina-dry-fruit/main/images/1000145032.jpg' },
-            { id: 106, name: 'Ashwagandha', price: 40, displayPrice: '40 / 10g (Min 50g)', unitType: 'gram10', minQty: 50, stepQty: 10, image: 'https://raw.githubusercontent.com/kaifkaif223036-gmail/madina-dry-fruit/main/images/1000145033.jpg' },
-            { id: 104, name: 'Chia Seeds', price: 2000, displayPrice: '500 / 250g', unitType: 'kg', image: 'https://images.unsplash.com/photo-1514733670139-4d87a1941d55?auto=format&fit=crop&w=500&q=80' },
             { id: 1, name: 'American Almond Giri', price: 3400, displayPrice: '3400 / kg', unitType: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
             { id: 2, name: 'Magaz Badam Gurbandi', price: 3000, displayPrice: '3000 / kg', unitType: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
             { id: 3, name: 'Xinjiang Thin Shell Walnut (Akhrot)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg' },
@@ -591,7 +585,7 @@
             { id: 7, name: 'Salted Pistachio', price: 5000, displayPrice: '5000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' }
         ];
 
-        // ROW 2: Dates placed right at the beginning
+        // ROW 2: Dates, Apricots, Figs & Raisins
         const productsCategory2 = [
             { id: 18, name: 'Fresh Zahidi Dates (Zahidi Khajoor)', price: 480, displayPrice: '480 / kg', unitType: 'kg', image: 'https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg' },
             { id: 19, name: 'Rabbi Dates (Rabbi Khajoor)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp' },
@@ -605,7 +599,7 @@
             { id: 14, name: 'Phool Makhana', price: 3950, displayPrice: '3950 / kg', unitType: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' }
         ];
 
-        // ROW 3
+        // ROW 3: Organic Honey & Special Mix
         const productsCategory3 = [
             { id: 15, name: 'Pure Raw Honey (Chota Shehed)', price: 5600, displayPrice: '5600 / kg', unitType: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg' },
             { id: 16, name: 'Mong Phali & Kaghzi Badam Mix', price: 1950, displayPrice: '1950 / kg', unitType: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
@@ -639,17 +633,9 @@
             const existingItem = cart.find(item => item.id === productId);
 
             if (existingItem) {
-                if (product.unitType === 'gram10') {
-                    existingItem.quantity += 10;
-                } else {
-                    existingItem.quantity = Math.round((existingItem.quantity + 0.25) * 100) / 100;
-                }
+                existingItem.quantity = Math.round((existingItem.quantity + 0.25) * 100) / 100;
             } else {
-                if (product.unitType === 'gram10') {
-                    cart.push({ ...product, quantity: product.minQty || 50 });
-                } else {
-                    cart.push({ ...product, quantity: 0.25 });
-                }
+                cart.push({ ...product, quantity: 0.25 });
             }
             updateCartUI();
         }
@@ -657,11 +643,7 @@
         function increaseQty(productId) {
             const item = cart.find(item => item.id === productId);
             if (item) {
-                if (item.unitType === 'gram10') {
-                    item.quantity += 10;
-                } else {
-                    item.quantity = Math.round((item.quantity + 0.25) * 100) / 100;
-                }
+                item.quantity = Math.round((item.quantity + 0.25) * 100) / 100;
                 updateCartUI();
             }
         }
@@ -669,20 +651,11 @@
         function decreaseQty(productId) {
             const item = cart.find(item => item.id === productId);
             if (item) {
-                if (item.unitType === 'gram10') {
-                    if (item.quantity > (item.minQty || 50)) {
-                        item.quantity -= 10;
-                    } else {
-                        removeFromCart(productId);
-                        return;
-                    }
+                if (item.quantity > 0.25) {
+                    item.quantity = Math.round((item.quantity - 0.25) * 100) / 100;
                 } else {
-                    if (item.quantity > 0.25) {
-                        item.quantity = Math.round((item.quantity - 0.25) * 100) / 100;
-                    } else {
-                        removeFromCart(productId);
-                        return;
-                    }
+                    removeFromCart(productId);
+                    return;
                 }
                 updateCartUI();
             }
@@ -694,23 +667,15 @@
         }
 
         function formatQuantity(item) {
-            if (item.unitType === 'gram10') {
-                return `${item.quantity} g`;
+            if (item.quantity < 1) {
+                return `${Math.round(item.quantity * 1000)} g`;
             } else {
-                if (item.quantity < 1) {
-                    return `${Math.round(item.quantity * 1000)} g`;
-                } else {
-                    return `${item.quantity} kg`;
-                }
+                return `${item.quantity} kg`;
             }
         }
 
         function calculateItemTotal(item) {
-            if (item.unitType === 'gram10') {
-                return Math.round((item.price / 10) * item.quantity);
-            } else {
-                return Math.round(item.price * item.quantity);
-            }
+            return Math.round(item.price * item.quantity);
         }
 
         function updateCartUI() {
