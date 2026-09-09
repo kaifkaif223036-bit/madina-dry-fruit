@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madina Dry Fruit - Fresh Quality with Best Price</title>
+    <title>Madina Herbal & dry fruit - [fresh quality with best price]</title>
     
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -56,7 +56,7 @@
             position: relative;
             min-height: 65vh;
             background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
-                        url('https://images.unsplash.com/photo-1509358271058-acd02cc93858?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+                        url('https://img.freepik.com/free-vector/seasonal-sale-discounts-presents-purchase-visiting-boutiques-luxury-shopping-price-reduction-promotional-coupons-special-holiday-offers-vector-isolated-concept-metaphor-illustration_335657-2766.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -380,42 +380,11 @@
             border-radius: 6px;
             font-size: 0.95rem;
         }
-        
-        .bank-details-box {
-            display: none;
-            background: #fdf3e7;
-            border: 1px dashed #e67e22;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 0.88rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-            line-height: 1.5;
-        }
 
         .action-buttons {
             display: flex;
             gap: 10px;
             margin-top: 10px;
-        }
-        .btn-whatsapp {
-            background: #25d366;
-            color: white;
-            border: none;
-            flex: 1;
-            padding: 0.85rem;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: 0.2s;
-        }
-        .btn-whatsapp:hover {
-            background: #1eb854;
         }
         .btn-email {
             background: #3498db;
@@ -436,6 +405,25 @@
         .btn-email:hover {
             background: #2980b9;
         }
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+            border: none;
+            flex: 1;
+            padding: 0.85rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+        .btn-whatsapp:hover {
+            background: #1eb854;
+        }
 
         /* FOOTER */
         footer {
@@ -452,17 +440,17 @@
     <!-- NAVBAR -->
     <header>
         <div class="logo">
-            <h1>Madina Dry Fruit</h1>
+            <h1>Madina Herbal & dry fruit</h1>
             <p>[fresh quality with best price]</p>
         </div>
     </header>
 
-    <!-- HERO SECTION WITH DRY FRUITS BACKGROUND -->
+    <!-- HERO SECTION WITH HERO IMAGE -->
     <section class="hero">
         <div class="hero-content">
-            <h2>Premium Quality All Dry Fruits Available</h2>
+            <h2>Premium Quality Herbal & Dry Fruits Available</h2>
             <div>
-                <span class="highlight-tag">Fresh quality with best price</span>
+                <span class="highlight-tag">fresh quality with best price</span>
             </div>
             <a href="#products-start" class="shop-now-btn">Shop Now</a>
         </div>
@@ -471,16 +459,16 @@
     <!-- PRODUCTS CAROUSELS -->
     <section class="products-section" id="products-start">
         
-        <!-- ROW 1 (ALMONDS, WALNUTS, CASHEWS & PISTACHIO) -->
-        <h3 class="carousel-title">Almonds, Walnuts & Cashews</h3>
+        <!-- CAROUSEL 1: SEEDS & HERBS -->
+        <h3 class="carousel-title">Organic Seeds & Herbal Products</h3>
         <div class="carousel-container" id="carousel-1"></div>
 
-        <!-- ROW 2 (DATES, APRICOTS, FIGS & RAISINS) -->
-        <h3 class="carousel-title">Dates, Apricots, Figs & Raisins</h3>
+        <!-- CAROUSEL 2: ALMONDS, WALNUTS, CASHEWS & PISTACHIO -->
+        <h3 class="carousel-title">Almonds, Walnuts & Cashews</h3>
         <div class="carousel-container" id="carousel-2"></div>
 
-        <!-- ROW 3 (HONEY & SPECIAL MIX) -->
-        <h3 class="carousel-title">Organic Honey, Special Mix & Pine Nuts</h3>
+        <!-- CAROUSEL 3: DATES, APRICOTS, FIGS, RAISINS & HONEY -->
+        <h3 class="carousel-title">Dates, Apricots, Figs, Raisins & Honey</h3>
         <div class="carousel-container" id="carousel-3"></div>
 
     </section>
@@ -496,17 +484,17 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- CART MODAL WITH PAYMENT OPTIONS & WHATSAPP / EMAIL -->
+    <!-- CART MODAL WITH CUSTOMER FORM & EMAIL / WHATSAPP ORDER -->
     <div class="modal-overlay" id="cart-modal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleCart()">&times;</span>
-            <h2 style="color: #2c3e50;">Your Shopping Cart</h2>
+            <h2 style="color: #2c3e50; margin-bottom: 0.5rem;">Your Shopping Cart</h2>
             
             <div class="cart-items-list" id="cart-items">
                 <p style="text-align:center; color:#777;">Your cart is empty.</p>
             </div>
             
-            <!-- BILL SUMMARY WITH LOCATION-BASED DELIVERY CHARGES -->
+            <!-- BILL SUMMARY WITH DELIVERY CHARGES -->
             <div class="cart-summary" id="cart-summary">
                 <div class="summary-row">
                     <span>Items Subtotal:</span>
@@ -522,44 +510,29 @@
                 </div>
             </div>
 
-            <h3 style="margin-bottom: 0.6rem; color: #2c3e50;">Customer & Delivery Details</h3>
+            <h3 style="margin-bottom: 0.6rem; color: #2c3e50;">Customer Details</h3>
             <form class="checkout-form" id="checkout-form" onsubmit="event.preventDefault();">
                 <label for="cust-name">Full Name</label>
-                <input type="text" id="cust-name" placeholder="Enter full name" required>
+                <input type="text" id="cust-name" placeholder="Enter your full name" required>
                 
                 <label for="cust-phone">Phone Number</label>
                 <input type="tel" id="cust-phone" placeholder="Enter phone number (e.g. 03092700965)" required>
                 
-                <label for="delivery-zone">Select Delivery Area / Distance</label>
+                <label for="delivery-zone">Select Delivery Option</label>
                 <select id="delivery-zone" onchange="updateCartUI()">
-                    <option value="100">Narowal City / Near Model Bazar (Local - Rs. 100)</option>
-                    <option value="200">Zafarwal / Nearby Tehsil Areas (Medium Distance - Rs. 200)</option>
-                    <option value="350">Other Cities / Out of District (Cargo - Rs. 350)</option>
+                    <option value="100">Local Delivery (Rs. 100)</option>
+                    <option value="200">Out-of-City Cargo (Rs. 200)</option>
                 </select>
 
-                <label for="cust-address">Complete Delivery Address</label>
-                <textarea id="cust-address" rows="2" placeholder="Street, Shop or House Address" required></textarea>
-
-                <label for="payment-method">Payment Method</label>
-                <select id="payment-method" onchange="toggleBankDetails()">
-                    <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
-                    <option value="Online Bank Transfer / EasyPaisa">Online Payment (Bank Transfer / EasyPaisa)</option>
-                </select>
-
-                <!-- BANK & EASYPAISA DETAILS BOX -->
-                <div class="bank-details-box" id="bank-info">
-                    <strong style="color:#d35400; font-size:0.95rem;">Payment Account Details:</strong><br>
-                    • <strong>EasyPaisa Account:</strong> 03467224956<br>
-                    • <strong>Meezan Bank Account:</strong> 98280106636773<br>
-                    <small style="display:block; margin-top:4px; color:#555;"><i>* Payment bhejne ke baad screenshot WhatsApp par zaroor share karein.</i></small>
-                </div>
+                <label for="cust-address">Delivery Address</label>
+                <textarea id="cust-address" rows="2" placeholder="Street or House Address" required></textarea>
 
                 <div class="action-buttons">
+                    <button type="button" class="btn-email" onclick="processOrder('email')">
+                        <i class="fas fa-envelope"></i> Send Order via Email
+                    </button>
                     <button type="button" class="btn-whatsapp" onclick="processOrder('whatsapp')">
                         <i class="fab fa-whatsapp"></i> WhatsApp Order
-                    </button>
-                    <button type="button" class="btn-email" onclick="processOrder('email')">
-                        <i class="fas fa-envelope"></i> Email Order
                     </button>
                 </div>
             </form>
@@ -568,14 +541,23 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Madina Dry Fruit. All Rights Reserved.</p>
-        <p style="font-size: 0.85rem; color: #bdc3c7; margin-top: 4px;">Hussaini Chowk, Zafarwal Road, New Model Bazar, Narowal | Phone: 03092700965</p>
+        <p>&copy; 2026 Madina Herbal & dry fruit. All Rights Reserved.</p>
+        <p style="font-size: 0.85rem; color: #bdc3c7; margin-top: 4px;">Owner Email: kaifkaif223036@gmail.com | Phone: 03092700965</p>
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // ROW 1: Almonds, Walnuts, Cashews & Pistachio
+        // ROW 1: ORGANIC SEEDS & HERBS
         const productsCategory1 = [
+            { id: 101, name: 'Dry Pumpkin Seeds', price: 2200, displayPrice: '550 / 250g', unitType: '250g', image: 'https://i.ibb.co/XZ5YGpCF/dry-pumpkin-seeds-500x500.jpg' },
+            { id: 102, name: 'Sunflower Seeds', price: 1000, displayPrice: '250 / 250g', unitType: '250g', image: 'https://i.ibb.co/0p0H75V3/7df37c6eb75ee4647cc3805a52c8354d.jpg' },
+            { id: 103, name: 'White Till Seed', price: 800, displayPrice: '200 / 250g', unitType: '250g', image: 'https://i.ibb.co/k2WNpB2j/white-till-seed.jpg' },
+            { id: 104, name: 'Dried Safed Musli Roots', price: 1500, displayPrice: '150 / 10g (Min 50g)', unitType: 'gram10', minQty: 50, stepQty: 10, image: 'https://i.ibb.co/v6KPRyYG/dried-safed-musli-roots-500x500.jpg' },
+            { id: 105, name: 'Herbal Special Item', price: 4000, displayPrice: '200 / 50g (Min 50g)', unitType: 'gram50', minQty: 50, stepQty: 50, image: 'https://i.ibb.co/C5bB8rJC/71hn-TMAg99-L-AC-UF1000-1000-QL80.jpg' }
+        ];
+
+        // ROW 2: ALMONDS, WALNUTS & CASHEWS
+        const productsCategory2 = [
             { id: 1, name: 'American Almond Giri', price: 3400, displayPrice: '3400 / kg', unitType: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
             { id: 2, name: 'Magaz Badam Gurbandi', price: 3000, displayPrice: '3000 / kg', unitType: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
             { id: 3, name: 'Xinjiang Thin Shell Walnut (Akhrot)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg' },
@@ -585,8 +567,8 @@
             { id: 7, name: 'Salted Pistachio', price: 5000, displayPrice: '5000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' }
         ];
 
-        // ROW 2: Dates, Apricots, Figs & Raisins
-        const productsCategory2 = [
+        // ROW 3: DATES, APRICOTS, FIGS, RAISINS & HONEY
+        const productsCategory3 = [
             { id: 18, name: 'Fresh Zahidi Dates (Zahidi Khajoor)', price: 480, displayPrice: '480 / kg', unitType: 'kg', image: 'https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg' },
             { id: 19, name: 'Rabbi Dates (Rabbi Khajoor)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp' },
             { id: 20, name: 'Muzafati Dates', price: 900, displayPrice: '900 / kg', unitType: 'kg', image: 'https://i.ibb.co/zttfBfF/product-jpeg.jpg' },
@@ -596,11 +578,7 @@
             { id: 11, name: 'Premium Raisin (Kishmish)', price: 1400, displayPrice: '1400 / kg', unitType: 'kg', image: 'https://i.ibb.co/VYCFk7Nv/Sdf266a4d4f9d476c97e9dbc95c2574470.jpg' },
             { id: 12, name: 'Black Raisin', price: 1600, displayPrice: '1600 / kg', unitType: 'kg', image: 'https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg' },
             { id: 13, name: 'Khopra (Dried Coconut)', price: 1200, displayPrice: '1200 / kg', unitType: 'kg', image: 'https://i.ibb.co/fzG82C88/images-13.jpg' },
-            { id: 14, name: 'Phool Makhana', price: 3950, displayPrice: '3950 / kg', unitType: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' }
-        ];
-
-        // ROW 3: Organic Honey & Special Mix
-        const productsCategory3 = [
+            { id: 14, name: 'Phool Makhana', price: 3950, displayPrice: '3950 / kg', unitType: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' },
             { id: 15, name: 'Pure Raw Honey (Chota Shehed)', price: 5600, displayPrice: '5600 / kg', unitType: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg' },
             { id: 16, name: 'Mong Phali & Kaghzi Badam Mix', price: 1950, displayPrice: '1950 / kg', unitType: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
             { id: 17, name: 'Chilgoza Kernel (Chilgoza Giri)', price: 9900, displayPrice: '9900 / kg', unitType: 'kg', image: 'https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg' }
@@ -612,7 +590,7 @@
         function createProductCard(product) {
             return `
                 <div class="product-card">
-                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/240x170?text=Madina+Dry+Fruit'">
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/240x170?text=Madina+Herbal'">
                     <div class="product-details">
                         <div class="product-title">${product.name}</div>
                         <div class="product-price">Rs. ${product.displayPrice}</div>
@@ -633,9 +611,21 @@
             const existingItem = cart.find(item => item.id === productId);
 
             if (existingItem) {
-                existingItem.quantity = Math.round((existingItem.quantity + 0.25) * 100) / 100;
+                if (product.unitType === 'gram10') {
+                    existingItem.quantity += 10;
+                } else if (product.unitType === 'gram50') {
+                    existingItem.quantity += 50;
+                } else if (product.unitType === '250g') {
+                    existingItem.quantity += 0.25;
+                } else {
+                    existingItem.quantity = Math.round((existingItem.quantity + 0.25) * 100) / 100;
+                }
             } else {
-                cart.push({ ...product, quantity: 0.25 });
+                if (product.unitType === 'gram10' || product.unitType === 'gram50') {
+                    cart.push({ ...product, quantity: product.minQty || 50 });
+                } else {
+                    cart.push({ ...product, quantity: 0.25 });
+                }
             }
             updateCartUI();
         }
@@ -643,7 +633,13 @@
         function increaseQty(productId) {
             const item = cart.find(item => item.id === productId);
             if (item) {
-                item.quantity = Math.round((item.quantity + 0.25) * 100) / 100;
+                if (item.unitType === 'gram10') {
+                    item.quantity += 10;
+                } else if (item.unitType === 'gram50') {
+                    item.quantity += 50;
+                } else {
+                    item.quantity = Math.round((item.quantity + 0.25) * 100) / 100;
+                }
                 updateCartUI();
             }
         }
@@ -651,11 +647,21 @@
         function decreaseQty(productId) {
             const item = cart.find(item => item.id === productId);
             if (item) {
-                if (item.quantity > 0.25) {
-                    item.quantity = Math.round((item.quantity - 0.25) * 100) / 100;
+                if (item.unitType === 'gram10' || item.unitType === 'gram50') {
+                    const step = item.stepQty || 10;
+                    if (item.quantity > (item.minQty || 50)) {
+                        item.quantity -= step;
+                    } else {
+                        removeFromCart(productId);
+                        return;
+                    }
                 } else {
-                    removeFromCart(productId);
-                    return;
+                    if (item.quantity > 0.25) {
+                        item.quantity = Math.round((item.quantity - 0.25) * 100) / 100;
+                    } else {
+                        removeFromCart(productId);
+                        return;
+                    }
                 }
                 updateCartUI();
             }
@@ -667,15 +673,23 @@
         }
 
         function formatQuantity(item) {
-            if (item.quantity < 1) {
-                return `${Math.round(item.quantity * 1000)} g`;
+            if (item.unitType === 'gram10' || item.unitType === 'gram50') {
+                return `${item.quantity} g`;
             } else {
-                return `${item.quantity} kg`;
+                if (item.quantity < 1) {
+                    return `${Math.round(item.quantity * 1000)} g`;
+                } else {
+                    return `${item.quantity} kg`;
+                }
             }
         }
 
         function calculateItemTotal(item) {
-            return Math.round(item.price * item.quantity);
+            if (item.unitType === 'gram10' || item.unitType === 'gram50') {
+                return Math.round((item.price / 1000) * item.quantity);
+            } else {
+                return Math.round(item.price * item.quantity);
+            }
         }
 
         function updateCartUI() {
@@ -728,16 +742,6 @@
             modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
         }
 
-        function toggleBankDetails() {
-            const selectVal = document.getElementById('payment-method').value;
-            const bankBox = document.getElementById('bank-info');
-            if (selectVal.includes('Online')) {
-                bankBox.style.display = 'block';
-            } else {
-                bankBox.style.display = 'none';
-            }
-        }
-
         function processOrder(type) {
             if (cart.length === 0) {
                 alert('Your cart is empty! Please add products first.');
@@ -750,7 +754,6 @@
             const zoneSelect = document.getElementById('delivery-zone');
             const zoneText = zoneSelect.options[zoneSelect.selectedIndex].text;
             const deliveryFee = parseInt(zoneSelect.value);
-            const payment = document.getElementById('payment-method').value;
 
             if (!name || !phone || !address) {
                 alert('Please fill out Name, Phone, and Address fields.');
@@ -761,16 +764,34 @@
             const subtotalCost = cart.reduce((sum, item) => sum + calculateItemTotal(item), 0);
             const grandTotal = subtotalCost + deliveryFee;
 
-            if (type === 'whatsapp') {
+            if (type === 'email') {
+                const ownerEmail = 'kaifkaif223036@gmail.com';
+                const emailSubject = encodeURIComponent(`New Order from ${name} - Madina Herbal & dry fruit`);
+                const emailBody = encodeURIComponent(
+                    `New Order Details:\n` +
+                    `-----------------------------\n` +
+                    `Customer Name: ${name}\n` +
+                    `Phone Number: ${phone}\n` +
+                    `Delivery Option: ${zoneText}\n` +
+                    `Delivery Address: ${address}\n\n` +
+                    `Items Ordered:\n${orderItemsText}\n\n` +
+                    `-----------------------------\n` +
+                    `Subtotal: Rs. ${subtotalCost}\n` +
+                    `Delivery Charges: Rs. ${deliveryFee}\n` +
+                    `Grand Total: Rs. ${grandTotal}\n` +
+                    `-----------------------------`
+                );
+                
+                window.location.href = `mailto:${ownerEmail}?subject=${emailSubject}&body=${emailBody}`;
+            } 
+            else if (type === 'whatsapp') {
                 const message = 
-                    `🛒 *NEW ORDER - MADINA DRY FRUIT*\n` +
-                    `📍 *From Shop:* Hussaini Chowk, Zafarwal Road, Narowal\n` +
+                    `🛒 *NEW ORDER - MADINA HERBAL & DRY FRUIT*\n` +
                     `-----------------------------------\n` +
                     `👤 *Customer Name:* ${name}\n` +
                     `📞 *Phone Number:* ${phone}\n` +
-                    `🚚 *Delivery Zone:* ${zoneText}\n` +
+                    `🚚 *Delivery Option:* ${zoneText}\n` +
                     `📍 *Address:* ${address}\n` +
-                    `💳 *Payment Method:* ${payment}\n` +
                     `-----------------------------------\n` +
                     `📦 *ITEMS ORDERED:*\n${orderItemsText}\n` +
                     `-----------------------------------\n` +
@@ -781,33 +802,12 @@
 
                 const whatsappUrl = `https://wa.me/923092700965?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
-            } 
-            else if (type === 'email') {
-                const emailSubject = encodeURIComponent(`New Order from ${name} - Madina Dry Fruit`);
-                const emailBody = encodeURIComponent(
-                    `New Order Details (Origin: Hussaini Chowk, Zafarwal Road, Narowal):\n` +
-                    `-----------------------------\n` +
-                    `Customer Name: ${name}\n` +
-                    `Customer Phone: ${phone}\n` +
-                    `Delivery Zone: ${zoneText}\n` +
-                    `Delivery Address: ${address}\n` +
-                    `Payment Method: ${payment}\n\n` +
-                    `Items Ordered:\n${orderItemsText}\n\n` +
-                    `-----------------------------\n` +
-                    `Subtotal: Rs. ${subtotalCost}\n` +
-                    `Delivery Charges: Rs. ${deliveryFee}\n` +
-                    `Grand Total: Rs. ${grandTotal}\n` +
-                    `-----------------------------`
-                );
-                
-                window.location.href = `mailto:kaifkaif223036@gmail.com?subject=${emailSubject}&body=${emailBody}`;
             }
 
             cart = [];
             updateCartUI();
             toggleCart();
             document.getElementById('checkout-form').reset();
-            document.getElementById('bank-info').style.display = 'none';
         }
 
         renderAllCarousels();
