@@ -1,858 +1,724 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madina Herbal & dry fruit - [fresh quality with best price]</title>
-    
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madina Herbal & Dry Fruit | Fresh Quality with Best Price</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --accent: #f39c12;
+      --accent-hover: #d35400;
+      --dark: #1e1e1e;
+      --light: #f8f9fa;
+      --white: #ffffff;
+      --shadow: 0 4px 15px rgba(0,0,0,0.1);
+      --border-radius: 12px;
+    }
 
-    <style>
-        /* RESET & BASE STYLES */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            background-color: #fdfaf6;
-            background-image: radial-gradient(#e67e22 0.5px, transparent 0.5px), radial-gradient(#d35400 0.5px, #fdfaf6 0.5px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            color: #2c3e50;
-            line-height: 1.6;
-            padding-bottom: 20px;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-        /* HEADER & NAVBAR */
-        header {
-            background: #2c3e50;
-            color: #fff;
-            padding: 1rem 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-        }
-        .logo h1 {
-            font-size: 1.4rem;
-            color: #f39c12;
-        }
-        .logo p {
-            font-size: 0.8rem;
-            color: #ecf0f1;
-        }
+    body {
+      background-color: #f4f6f8;
+      color: var(--dark);
+      padding-bottom: 70px;
+    }
 
-        /* HERO SECTION */
-        .hero {
-            position: relative;
-            min-height: 65vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
-                        url('https://i.ibb.co/m58JMt5L/download-1.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            padding: 2.5rem 1rem;
-        }
-        .hero-content h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
-            font-weight: 700;
-            line-height: 1.3;
-        }
+    /* --- Header / Navbar --- */
+    header {
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .highlight-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, #f1c40f, #e67e22);
-            color: #111111;
-            padding: 8px 22px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.6);
-            letter-spacing: 0.5px;
-            border: 2px solid #ffffff;
-            text-transform: uppercase;
-        }
+    .brand-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        .shop-now-btn {
-            background: #e67e22;
-            color: #fff;
-            padding: 0.85rem 2.4rem;
-            font-size: 1.15rem;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.3s ease;
-            font-weight: bold;
-            display: inline-block;
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.5);
-        }
-        .shop-now-btn:hover {
-            background: #d35400;
-            transform: scale(1.05);
-        }
+    .brand-title span {
+      color: var(--accent);
+    }
 
-        /* PRODUCT CAROUSEL SECTION */
-        .products-section {
-            padding: 2rem 3%;
-        }
-        .carousel-title {
-            margin: 1.8rem 0 0.8rem 0.5rem;
-            color: #2c3e50;
-            font-size: 1.35rem;
-            border-left: 5px solid #e67e22;
-            padding-left: 10px;
-            background: rgba(255, 255, 255, 0.85);
-            display: inline-block;
-            padding-right: 15px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        }
-        .carousel-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding: 12px 5px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        .carousel-container::-webkit-scrollbar {
-            height: 7px;
-        }
-        .carousel-container::-webkit-scrollbar-thumb {
-            background: #e67e22;
-            border-radius: 10px;
-        }
-        
-        /* PRODUCT CARD */
-        .product-card {
-            flex: 0 0 240px;
-            scroll-snap-align: start;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #eadbc8;
-        }
-        .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-        }
-        .product-card img {
-            width: 100%;
-            height: 170px;
-            object-fit: cover;
-            background-color: #f4f4f4;
-        }
-        .product-details {
-            padding: 0.9rem;
-            text-align: center;
-        }
-        .product-title {
-            font-size: 0.98rem;
-            font-weight: bold;
-            margin-bottom: 0.4rem;
-            color: #2c3e50;
-            height: 2.4em;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-        .product-price {
-            color: #d35400;
-            font-weight: bold;
-            font-size: 1.05rem;
-            margin-bottom: 0.8rem;
-        }
-        .add-to-cart-btn {
-            background: #27ae60;
-            color: #fff;
-            border: none;
-            width: 100%;
-            padding: 0.65rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.2s;
-        }
-        .add-to-cart-btn:hover {
-            background: #219150;
-        }
+    .header-cart-btn {
+      position: relative;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s;
+    }
 
-        /* FLOATING BUTTONS */
-        .floating-cart {
-            position: fixed;
-            bottom: 85px;
-            right: 20px;
-            background: #e67e22;
-            color: white;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.4rem;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-            cursor: pointer;
-            z-index: 1000;
-        }
-        .cart-count {
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            background: #c0392b;
-            color: white;
-            font-size: 0.75rem;
-            padding: 2px 7px;
-            border-radius: 50%;
-            font-weight: bold;
-        }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 18px;
-            right: 20px;
-            background: #25d366;
-            color: white;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-            z-index: 1000;
-            text-decoration: none;
-        }
+    .header-cart-btn:hover {
+      background: #1b5e20;
+    }
 
-        /* CART MODAL & CUSTOMER DETAILS */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.65);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-        .modal-content {
-            background: #fff;
-            padding: 1.5rem;
-            width: 92%;
-            max-width: 480px;
-            border-radius: 12px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 18px;
-            font-size: 1.6rem;
-            cursor: pointer;
-            color: #888;
-        }
-        .cart-items-list {
-            list-style: none;
-            margin: 1rem 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            padding: 0.8rem 0;
-            max-height: 180px;
-            overflow-y: auto;
-        }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-            background: #fdfaf6;
-            padding: 8px 10px;
-            border-radius: 8px;
-            border: 1px solid #f0e6d2;
-        }
-        .cart-item-info {
-            flex: 1;
-            padding-right: 10px;
-        }
-        .qty-controls {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .qty-btn {
-            background: #e67e22;
-            color: white;
-            border: none;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.2s;
-        }
-        .qty-btn:hover {
-            background: #d35400;
-        }
-        .delete-btn {
-            background: #e74c3c;
-            color: white;
-            border: none;
-            width: 28px;
-            height: 28px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-left: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-        }
-        .delete-btn:hover {
-            background: #c0392b;
-        }
-        
-        /* BILL SUMMARY BOX */
-        .cart-summary {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 10px 14px;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            border: 1px solid #e9ecef;
-        }
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-            color: #555;
-        }
-        .summary-row.total-row {
-            border-top: 1px dashed #ccc;
-            padding-top: 6px;
-            margin-top: 6px;
-            font-weight: bold;
-            color: #2c3e50;
-            font-size: 1.1rem;
-        }
+    .cart-badge {
+      background: var(--accent);
+      color: var(--dark);
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 50%;
+      padding: 2px 7px;
+    }
 
-        .checkout-form label {
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: #444;
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-        .checkout-form input, .checkout-form textarea, .checkout-form select {
-            width: 100%;
-            padding: 0.7rem;
-            margin-bottom: 0.9rem;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 0.95rem;
-        }
+    /* --- Hero Section --- */
+    .hero {
+      position: relative;
+      min-height: 75vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                  url('https://i.ibb.co/GvF0X1tQ/mix-dry-fruits-18781-2366310-170526105227707.webp') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding: 2rem 1rem;
+    }
 
-        /* BANK / EASYPAISA INFO DISPLAY BOX */
-        .bank-details-box {
-            display: none;
-            background: #fdf3e7;
-            border: 1px dashed #e67e22;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 0.88rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-            line-height: 1.5;
-        }
+    .hero-content {
+      max-width: 800px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
 
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .btn-email {
-            background: #3498db;
-            color: white;
-            border: none;
-            flex: 1;
-            padding: 0.85rem;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: 0.2s;
-        }
-        .btn-email:hover {
-            background: #2980b9;
-        }
-        .btn-whatsapp {
-            background: #25d366;
-            color: white;
-            border: none;
-            flex: 1;
-            padding: 0.85rem;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: 0.2s;
-        }
-        .btn-whatsapp:hover {
-            background: #1eb854;
-        }
+    .hero-content h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--accent);
+      text-shadow: 2px 3px 8px rgba(0,0,0,0.8);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
 
-        /* FOOTER */
-        footer {
-            background: #2c3e50;
-            color: #fff;
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-    </style>
+    .hero-tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: #fff8dc;
+      margin-bottom: 25px;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+
+    .btn-shop-now {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: var(--white);
+      padding: 14px 38px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-shop-now:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(243, 156, 18, 0.6);
+    }
+
+    /* --- Products Carousel Section --- */
+    .products-container {
+      max-width: 1250px;
+      margin: 40px auto;
+      padding: 0 15px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      margin-bottom: 50px;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 15px 5px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .carousel-track::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+
+    /* --- Product Cards --- */
+    .product-card {
+      flex: 0 0 260px;
+      scroll-snap-align: start;
+      background: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .product-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .product-price {
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .product-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .qty-picker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .qty-picker input {
+      width: 80px;
+      padding: 5px 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .btn-add-cart {
+      width: 100%;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-add-cart:hover {
+      background: #1b5e20;
+    }
+
+    /* --- Floating Cart Drawer / Modal --- */
+    .cart-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 2000;
+      justify-content: flex-end;
+    }
+
+    .cart-drawer {
+      background: var(--white);
+      width: 100%;
+      max-width: 450px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      animation: slideLeft 0.3s ease-out;
+    }
+
+    .cart-header {
+      padding: 20px;
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-body {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+
+    .cart-item-details h4 {
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+
+    .cart-item-details p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .cart-item-remove {
+      color: #e74c3c;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .cart-footer {
+      padding: 20px;
+      border-top: 1px solid #eee;
+      background: #fafafa;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    /* --- Form Styling --- */
+    .checkout-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checkout-form input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .btn-send-email {
+      width: 100%;
+      background: var(--accent);
+      color: var(--dark);
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-send-email:hover {
+      background: #e67e22;
+      color: var(--white);
+    }
+
+    /* --- Floating WhatsApp Button --- */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* --- Keyframe Animations --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideLeft {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <header>
-        <div class="logo">
-            <h1>Madina Herbal & dry fruit</h1>
-            <p>[fresh quality with best price]</p>
-        </div>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="brand-title">
+      <i class="fa-solid fa-leaf"></i> Madina <span>Herbal & Dry Fruit</span>
+    </div>
+    <button class="header-cart-btn" onclick="toggleCart()">
+      <i class="fa-solid fa-cart-shopping"></i> Cart
+      <span class="cart-badge" id="cartCount">0</span>
+    </button>
+  </header>
 
-    <!-- HERO SECTION WITH HERO IMAGE -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Premium Quality Herbal & Dry Fruits Available</h2>
-            <div>
-                <span class="highlight-tag">fresh quality with best price</span>
-            </div>
-            <a href="#products-start" class="shop-now-btn">Shop Now</a>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Premium Quality Dry Fruits & Pure Organic Herbs</h1>
+      <p class="hero-tagline">[fresh quality with best price]</p>
+      <a href="#products-section" class="btn-shop-now">
+        Shop Now <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
 
-    <!-- PRODUCTS CAROUSELS -->
-    <section class="products-section" id="products-start">
+  <!-- Main Products Section -->
+  <div class="products-container" id="products-section">
+    
+    <!-- Carousel 1: Premium Nuts & Dry Fruits -->
+    <h2 class="section-title">Premium Nuts & Kernels</h2>
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carousel1"></div>
+    </div>
+
+    <!-- Carousel 2: Authentic Dates & Sweet Specialties -->
+    <h2 class="section-title">Authentic Dates & Specialties</h2>
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carousel2"></div>
+    </div>
+
+    <!-- Carousel 3: Seeds & Pure Herbal Care -->
+    <h2 class="section-title">Organic Seeds & Herbal Care</h2>
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carousel3"></div>
+    </div>
+
+  </div>
+
+  <!-- Cart Modal / Side Drawer -->
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3><i class="fa-solid fa-basket-shopping"></i> Your Shopping Cart</h3>
+        <button onclick="toggleCart()" style="background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">&times;</button>
+      </div>
+
+      <div class="cart-body" id="cartBody">
+        <p style="text-align:center; color:#777; margin-top:20px;">Your cart is currently empty.</p>
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total Cost:</span>
+          <span id="cartTotal">Rs. 0</span>
+        </div>
+
+        <form class="checkout-form" id="checkoutForm" onsubmit="handleCheckout(event)">
+          <input type="text" id="custName" placeholder="Your Full Name" required>
+          <input type="tel" id="custPhone" placeholder="Mobile / WhatsApp Number" required>
+          <button type="submit" class="btn-send-email">
+            <i class="fa-solid fa-paper-plane"></i> Send Order via Email
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/923092700965" class="whatsapp-btn" target="_blank" title="Contact on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    const OWNER_EMAIL = "kaifkaif223036@gmail.com";
+
+    // Products Catalog Data
+    const products = [
+      // Carousel 1
+      { id: 1, name: "Premium Almonds", price: 3400, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg", cat: 1 },
+      { id: 2, name: "Kagzi Almonds", price: 3000, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/YFTRZfBX/images-11.jpg", cat: 1 },
+      { id: 3, name: "Thin Shell Walnut", price: 800, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg", cat: 1 },
+      { id: 4, name: "Roasted Pistachios", price: 2400, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/3mBrHR1m/images-8.jpg", cat: 1 },
+      { id: 5, name: "Jumbo Cashews", price: 3800, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/fG1sbp70/teated-18781-703935-151021070958804.jpg", cat: 1 },
+      { id: 6, name: "Shelled Walnut Kernels", price: 3600, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/XZR8mWkn/z4m4491-TOuw-Od07d-RUq-Y3-Jc-Zcq-EF2r9sk-Aysf-Kw-K.jpg", cat: 1 },
+      { id: 7, name: "Chilgoza (Pine Nuts)", price: 5000, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/kgc6XyzB/images-4.jpg", cat: 1 },
+      { id: 8, name: "Peanuts in Shell", price: 1000, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/kj0mKHp/images-10.jpg", cat: 1 },
+
+      // Carousel 2
+      { id: 9, name: "Golden Raisins", price: 1400, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/PG92LmTd/images-9.jpg", cat: 2 },
+      { id: 10, name: "Sundekhani Black Raisins", price: 2900, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/cP0pgP2/images-3.jpg", cat: 2 },
+      { id: 11, name: "Dried Figs (Anjeer)", price: 1400, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/VYCFk7Nv/Sdf266a4d4f9d476c97e9dbc95c2574470.jpg", cat: 2 },
+      { id: 12, name: "Dried Apricots", price: 1600, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg", cat: 2 },
+      { id: 13, name: "Dried Plums (Aloobukhara)", price: 1200, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/fzG82C88/images-13.jpg", cat: 2 },
+      { id: 14, name: "Premium Ajwa Dates", price: 3950, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/Y7r2b58C/images-12.jpg", cat: 2 },
+      { id: 15, name: "Pure Organic Honey", price: 5600, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/KppgHPT6/raw-honey2.jpg", cat: 2 },
+      { id: 16, name: "Mix Dry Fruit Deluxe", price: 1950, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png", cat: 2 },
+      { id: 17, name: "Special Zafran (Saffron)", price: 9900, unit: "kg", minQty: 1, step: 0.05, img: "https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg", cat: 2 },
+      { id: 18, name: "Fresh Zahidi Dates", price: 480, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg", cat: 2 },
+      { id: 19, name: "Rabbi Dates", price: 800, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp", cat: 2 },
+
+      // Carousel 3
+      { id: 20, name: "Flax Seeds (Alsi)", price: 900, unit: "kg", minQty: 1, step: 0.25, img: "https://i.ibb.co/zttfBfF/product-jpeg.jpg", cat: 3 },
+      { id: 21, name: "Pumpkin Seeds", price: 550, unit: "250g", minQty: 1, step: 1, img: "https://i.ibb.co/XZ5YGpCF/dry-pumpkin-seeds-500x500.jpg", cat: 3 },
+      { id: 22, name: "Chia Seeds", price: 250, unit: "250g", minQty: 1, step: 1, img: "https://i.ibb.co/0p0H75V3/7df37c6eb75ee4647cc3805a52c8354d.jpg", cat: 3 },
+      { id: 23, name: "White Till (Sesame)", price: 200, unit: "250g", minQty: 1, step: 1, img: "https://i.ibb.co/k2WNpB2j/white-till-seed.jpg", cat: 3 },
+      { id: 24, name: "Safed Musli Roots", price: 150, unit: "10g", minQty: 50, step: 10, img: "https://i.ibb.co/v6KPRyYG/dried-safed-musli-roots-500x500.jpg", cat: 3, isSpecialMin: true, minQtyVal: 50 },
+      { id: 25, name: "Special Herbal Blend", price: 200, unit: "50g", minQty: 50, step: 50, img: "https://i.ibb.co/C5bB8rJC/71hn-TMAg99-L-AC-UF1000-1000-QL80.jpg", cat: 3, isSpecialMin: true, minQtyVal: 50 }
+    ];
+
+    let cart = [];
+
+    // Render Products to Carousels
+    function renderProducts() {
+      products.forEach(product => {
+        const carousel = document.getElementById(`carousel${product.cat}`);
+        if(!carousel) return;
+
+        const defaultQty = product.isSpecialMin ? product.minQtyVal : (product.unit === 'kg' ? 1 : 1);
         
-        <!-- CAROUSEL 1: SEEDS & HERBS -->
-        <h3 class="carousel-title">Organic Seeds & Herbal Products</h3>
-        <div class="carousel-container" id="carousel-1"></div>
-
-        <!-- CAROUSEL 2: ALMONDS, WALNUTS, CASHEWS & PISTACHIO -->
-        <h3 class="carousel-title">Almonds, Walnuts & Cashews</h3>
-        <div class="carousel-container" id="carousel-2"></div>
-
-        <!-- CAROUSEL 3: DATES, APRICOTS, FIGS, RAISINS & HONEY -->
-        <h3 class="carousel-title">Dates, Apricots, Figs, Raisins & Honey</h3>
-        <div class="carousel-container" id="carousel-3"></div>
-
-    </section>
-
-    <!-- FLOATING CART BUTTON -->
-    <div class="floating-cart" onclick="toggleCart()">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count" id="cart-count">0</span>
-    </div>
-
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/923092700965" class="whatsapp-float" target="_blank" title="Contact on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- CART MODAL WITH PAYMENT OPTIONS & EMAIL / WHATSAPP ORDER -->
-    <div class="modal-overlay" id="cart-modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="toggleCart()">&times;</span>
-            <h2 style="color: #2c3e50; margin-bottom: 0.5rem;">Your Shopping Cart</h2>
-            
-            <div class="cart-items-list" id="cart-items">
-                <p style="text-align:center; color:#777;">Your cart is empty.</p>
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${product.img}" alt="${product.name}" class="product-img">
+          <div>
+            <div class="product-name">${product.name}</div>
+            <div class="product-price">Rs. ${product.price} <small>/ ${product.unit}</small></div>
+          </div>
+          <div class="product-controls">
+            <div class="qty-picker">
+              <label for="qty-${product.id}">Qty (${product.unit}):</label>
+              <input type="number" id="qty-${product.id}" value="${defaultQty}" min="${product.isSpecialMin ? product.minQtyVal : 0.25}" step="${product.step}">
             </div>
-            
-            <!-- BILL SUMMARY WITH DELIVERY CHARGES -->
-            <div class="cart-summary" id="cart-summary">
-                <div class="summary-row">
-                    <span>Items Subtotal:</span>
-                    <span id="subtotal-amount">Rs. 0</span>
-                </div>
-                <div class="summary-row">
-                    <span>Delivery Charges:</span>
-                    <span id="delivery-amount">Rs. 100</span>
-                </div>
-                <div class="summary-row total-row">
-                    <span>Grand Total:</span>
-                    <span id="grand-total-amount">Rs. 100</span>
-                </div>
+            <button class="btn-add-cart" onclick="addToCart(${product.id})">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        `;
+        carousel.appendChild(card);
+      });
+    }
+
+    // Add item to cart
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      const qtyInput = document.getElementById(`qty-${productId}`);
+      let qty = parseFloat(qtyInput.value);
+
+      // Validation for special minimum quantity products
+      if (product.isSpecialMin && qty < product.minQtyVal) {
+        alert(`Minimum order quantity for ${product.name} is ${product.minQtyVal} ${product.unit}`);
+        qtyInput.value = product.minQtyVal;
+        return;
+      }
+
+      if (isNaN(qty) || qty <= 0) {
+        alert("Please enter a valid quantity.");
+        return;
+      }
+
+      const existingIndex = cart.findIndex(item => item.id === productId);
+      if (existingIndex > -1) {
+        cart[existingIndex].qty += qty;
+      } else {
+        cart.push({ ...product, qty: qty });
+      }
+
+      updateCartUI();
+      toggleCart(true);
+    }
+
+    // Update Cart UI
+    function updateCartUI() {
+      const cartCountEl = document.getElementById('cartCount');
+      const cartBodyEl = document.getElementById('cartBody');
+      const cartTotalEl = document.getElementById('cartTotal');
+
+      const totalItems = cart.reduce((sum, item) => sum + 1, 0);
+      cartCountEl.textContent = totalItems;
+
+      if (cart.length === 0) {
+        cartBodyEl.innerHTML = `<p style="text-align:center; color:#777; margin-top:20px;">Your cart is currently empty.</p>`;
+        cartTotalEl.textContent = "Rs. 0";
+        return;
+      }
+
+      let html = '';
+      let totalPrice = 0;
+
+      cart.forEach((item, index) => {
+        let itemTotal = 0;
+        if (item.unit === 'kg' || item.unit === '250g') {
+          itemTotal = item.price * item.qty;
+        } else if (item.unit === '10g') {
+          itemTotal = (item.price / 10) * item.qty;
+        } else if (item.unit === '50g') {
+          itemTotal = (item.price / 50) * item.qty;
+        }
+
+        totalPrice += itemTotal;
+
+        html += `
+          <div class="cart-item">
+            <div class="cart-item-details">
+              <h4>${item.name}</h4>
+              <p>Rs. ${item.price} / ${item.unit} &times; ${item.qty} = <strong>Rs. ${itemTotal.toFixed(0)}</strong></p>
             </div>
+            <button class="cart-item-remove" onclick="removeFromCart(${index})">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        `;
+      });
 
-            <h3 style="margin-bottom: 0.6rem; color: #2c3e50;">Customer Details</h3>
-            <form class="checkout-form" id="checkout-form" onsubmit="event.preventDefault();">
-                <label for="cust-name">Full Name</label>
-                <input type="text" id="cust-name" placeholder="Enter your full name" required>
-                
-                <label for="cust-phone">Phone Number</label>
-                <input type="tel" id="cust-phone" placeholder="Enter phone number (e.g. 03092700965)" required>
-                
-                <label for="delivery-zone">Select Delivery Option</label>
-                <select id="delivery-zone" onchange="updateCartUI()">
-                    <option value="100">Local Delivery (Rs. 100)</option>
-                    <option value="200">Out-of-City Cargo (Rs. 200)</option>
-                </select>
+      cartBodyEl.innerHTML = html;
+      cartTotalEl.textContent = `Rs. ${totalPrice.toFixed(0)}`;
+    }
 
-                <label for="cust-address">Delivery Address</label>
-                <textarea id="cust-address" rows="2" placeholder="Street or House Address" required></textarea>
+    // Remove item from cart
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
 
-                <!-- PAYMENT METHOD SELECTOR -->
-                <label for="payment-method">Payment Method</label>
-                <select id="payment-method" onchange="toggleBankDetails()">
-                    <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
-                    <option value="Online Payment (Bank / EasyPaisa)">Online Payment (Bank Transfer / EasyPaisa)</option>
-                </select>
+    // Toggle Cart Drawer
+    function toggleCart(forceOpen = false) {
+      const cartModal = document.getElementById('cartModal');
+      if (forceOpen) {
+        cartModal.style.display = 'flex';
+      } else {
+        cartModal.style.display = cartModal.style.display === 'flex' ? 'none' : 'flex';
+      }
+    }
 
-                <!-- BANK & EASYPAISA DETAILS BOX -->
-                <div class="bank-details-box" id="bank-info">
-                    <strong style="color:#d35400; font-size:0.95rem;">Payment Account Details:</strong><br>
-                    • <strong>EasyPaisa:</strong> 03467224956<br>
-                    • <strong>Meezan Bank:</strong> 98280106636773<br>
-                    <small style="display:block; margin-top:4px; color:#555;"><i>* Payment bhejne ke baad screenshot receipt zaroor share karein.</i></small>
-                </div>
+    // Handle Order Submission via Email (mailto trigger)
+    function handleCheckout(e) {
+      e.preventDefault();
 
-                <div class="action-buttons">
-                    <button type="button" class="btn-email" onclick="processOrder('email')">
-                        <i class="fas fa-envelope"></i> Send Order via Email
-                    </button>
-                    <button type="button" class="btn-whatsapp" onclick="processOrder('whatsapp')">
-                        <i class="fab fa-whatsapp"></i> WhatsApp Order
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
+      if (cart.length === 0) {
+        alert("Your cart is empty! Please add some items first.");
+        return;
+      }
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 Madina Herbal & dry fruit. All Rights Reserved.</p>
-        <p style="font-size: 0.85rem; color: #bdc3c7; margin-top: 4px;">Owner Email: kaifkaif223036@gmail.com | Phone: 03092700965</p>
-    </footer>
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
 
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        // ROW 1: ORGANIC SEEDS & HERBS
-        const productsCategory1 = [
-            { id: 101, name: 'Dry Pumpkin Seeds', price: 2200, displayPrice: '550 / 250g', unitType: '250g', image: 'https://i.ibb.co/XZ5YGpCF/dry-pumpkin-seeds-500x500.jpg' },
-            { id: 102, name: 'Sunflower Seeds', price: 1000, displayPrice: '250 / 250g', unitType: '250g', image: 'https://i.ibb.co/0p0H75V3/7df37c6eb75ee4647cc3805a52c8354d.jpg' },
-            { id: 103, name: 'White Till Seed', price: 800, displayPrice: '200 / 250g', unitType: '250g', image: 'https://i.ibb.co/k2WNpB2j/white-till-seed.jpg' },
-            { id: 104, name: 'Dried Safed Musli Roots', price: 1500, displayPrice: '150 / 10g (Min 50g)', unitType: 'gram10', minQty: 50, stepQty: 10, image: 'https://i.ibb.co/v6KPRyYG/dried-safed-musli-roots-500x500.jpg' },
-            { id: 105, name: 'Herbal Special Item', price: 4000, displayPrice: '200 / 50g (Min 50g)', unitType: 'gram50', minQty: 50, stepQty: 50, image: 'https://i.ibb.co/C5bB8rJC/71hn-TMAg99-L-AC-UF1000-1000-QL80.jpg' }
-        ];
+      let orderList = "";
+      let grandTotal = 0;
 
-        // ROW 2: ALMONDS, WALNUTS & CASHEWS
-        const productsCategory2 = [
-            { id: 1, name: 'American Almond Giri', price: 3400, displayPrice: '3400 / kg', unitType: 'kg', image: 'https://i.ibb.co/bg4dF9C9/dry-almonds-500x500-1.jpg' },
-            { id: 2, name: 'Magaz Badam Gurbandi', price: 3000, displayPrice: '3000 / kg', unitType: 'kg', image: 'https://i.ibb.co/YFTRZfBX/images-11.jpg' },
-            { id: 3, name: 'Xinjiang Thin Shell Walnut (Akhrot)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/PdfYJpt/chinese-xinjiang-thin-shell-walnut-dried-walnut.jpg' },
-            { id: 4, name: 'Walnut Kernel (Akhrot Giri)', price: 2400, displayPrice: '2400 / kg', unitType: 'kg', image: 'https://i.ibb.co/3mBrHR1m/images-8.jpg' },
-            { id: 5, name: 'Salted Kaju', price: 3800, displayPrice: '3800 / kg', unitType: 'kg', image: 'https://i.ibb.co/fG1sbp70/teated-18781-703935-151021070958804.jpg' },
-            { id: 6, name: 'Plain Kaju', price: 3600, displayPrice: '3600 / kg', unitType: 'kg', image: 'https://i.ibb.co/XZR8mWkn/z4m4491-TOuw-Od07d-RUq-Y3-Jc-Zcq-EF2r9sk-Aysf-Kw-K.jpg' },
-            { id: 7, name: 'Salted Pistachio', price: 5000, displayPrice: '5000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kgc6XyzB/images-4.jpg' }
-        ];
-
-        // ROW 3: DATES, APRICOTS, FIGS, RAISINS & HONEY
-        const productsCategory3 = [
-            { id: 18, name: 'Fresh Zahidi Dates (Zahidi Khajoor)', price: 480, displayPrice: '480 / kg', unitType: 'kg', image: 'https://i.ibb.co/qY7gNDg3/fresh-zahidi-dates-500x500.jpg' },
-            { id: 19, name: 'Rabbi Dates (Rabbi Khajoor)', price: 800, displayPrice: '800 / kg', unitType: 'kg', image: 'https://i.ibb.co/cWsyRkd/Khajoor-Rabbi-Dates-Rabbi.webp' },
-            { id: 20, name: 'Muzafati Dates', price: 900, displayPrice: '900 / kg', unitType: 'kg', image: 'https://i.ibb.co/zttfBfF/product-jpeg.jpg' },
-            { id: 8, name: 'Dry Apricot (Khumani)', price: 1000, displayPrice: '1000 / kg', unitType: 'kg', image: 'https://i.ibb.co/kj0mKHp/images-10.jpg' },
-            { id: 9, name: 'Apricot (Khumani Special)', price: 1400, displayPrice: '1400 / kg', unitType: 'kg', image: 'https://i.ibb.co/PG92LmTd/images-9.jpg' },
-            { id: 10, name: 'Fig (Anjeer)', price: 2900, displayPrice: '2900 / kg', unitType: 'kg', image: 'https://i.ibb.co/cP0pgP2/images-3.jpg' },
-            { id: 11, name: 'Premium Raisin (Kishmish)', price: 1400, displayPrice: '1400 / kg', unitType: 'kg', image: 'https://i.ibb.co/VYCFk7Nv/Sdf266a4d4f9d476c97e9dbc95c2574470.jpg' },
-            { id: 12, name: 'Black Raisin', price: 1600, displayPrice: '1600 / kg', unitType: 'kg', image: 'https://i.ibb.co/84L8k57b/36399765-776a466f-10c3-4461-b2e3-03c9cfc0366f.jpg' },
-            { id: 13, name: 'Khopra (Dried Coconut)', price: 1200, displayPrice: '1200 / kg', unitType: 'kg', image: 'https://i.ibb.co/fzG82C88/images-13.jpg' },
-            { id: 14, name: 'Phool Makhana', price: 3950, displayPrice: '3950 / kg', unitType: 'kg', image: 'https://i.ibb.co/Y7r2b58C/images-12.jpg' },
-            { id: 15, name: 'Pure Raw Honey (Chota Shehed)', price: 5600, displayPrice: '5600 / kg', unitType: 'kg', image: 'https://i.ibb.co/KppgHPT6/raw-honey2.jpg' },
-            { id: 16, name: 'Mong Phali & Kaghzi Badam Mix', price: 1950, displayPrice: '1950 / kg', unitType: 'kg', image: 'https://i.ibb.co/0ydKPb6L/Untitleddesign-86dd85bb-a316-4afb-8d5a-3b094690b02c.png' },
-            { id: 17, name: 'Chilgoza Kernel (Chilgoza Giri)', price: 9900, displayPrice: '9900 / kg', unitType: 'kg', image: 'https://i.ibb.co/Jw5wd3Kp/S186ab039b1354c7eb5b41ed12833a0af-U.jpg' }
-        ];
-
-        const allProducts = [...productsCategory1, ...productsCategory2, ...productsCategory3];
-        let cart = [];
-
-        function createProductCard(product) {
-            return `
-                <div class="product-card">
-                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/240x170?text=Madina+Herbal'">
-                    <div class="product-details">
-                        <div class="product-title">${product.name}</div>
-                        <div class="product-price">Rs. ${product.displayPrice}</div>
-                        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
-                    </div>
-                </div>
-            `;
+      cart.forEach((item, i) => {
+        let itemTotal = 0;
+        if (item.unit === 'kg' || item.unit === '250g') {
+          itemTotal = item.price * item.qty;
+        } else if (item.unit === '10g') {
+          itemTotal = (item.price / 10) * item.qty;
+        } else if (item.unit === '50g') {
+          itemTotal = (item.price / 50) * item.qty;
         }
+        grandTotal += itemTotal;
+        orderList += `${i + 1}. ${item.name} - Qty: ${item.qty} ${item.unit} - Cost: Rs. ${itemTotal.toFixed(0)}\n`;
+      });
 
-        function renderAllCarousels() {
-            document.getElementById('carousel-1').innerHTML = productsCategory1.map(createProductCard).join('');
-            document.getElementById('carousel-2').innerHTML = productsCategory2.map(createProductCard).join('');
-            document.getElementById('carousel-3').innerHTML = productsCategory3.map(createProductCard).join('');
-        }
+      const subject = encodeURIComponent(`New Web Order - Madina Herbal & Dry Fruit (${name})`);
+      const body = encodeURIComponent(
+        `New Order Received from Madina Store Website!\n\n` +
+        `Customer Details:\n` +
+        `- Name: ${name}\n` +
+        `- Phone: ${phone}\n\n` +
+        `Ordered Items:\n` +
+        `${orderList}\n` +
+        `Total Estimated Amount: Rs. ${grandTotal.toFixed(0)}\n\n` +
+        `Thank you!`
+      );
 
-        function addToCart(productId) {
-            const product = allProducts.find(p => p.id === productId);
-            const existingItem = cart.find(item => item.id === productId);
+      // Open user's email client addressed to shop owner's email
+      window.location.href = `mailto:${OWNER_EMAIL}?subject=${subject}&body=${body}`;
 
-            if (existingItem) {
-                if (product.unitType === 'gram10') {
-                    existingItem.quantity += 10;
-                } else if (product.unitType === 'gram50') {
-                    existingItem.quantity += 50;
-                } else if (product.unitType === '250g') {
-                    existingItem.quantity += 0.25;
-                } else {
-                    existingItem.quantity = Math.round((existingItem.quantity + 0.25) * 100) / 100;
-                }
-            } else {
-                if (product.unitType === 'gram10' || product.unitType === 'gram50') {
-                    cart.push({ ...product, quantity: product.minQty || 50 });
-                } else {
-                    cart.push({ ...product, quantity: 0.25 });
-                }
-            }
-            updateCartUI();
-        }
+      alert("Opening your email client to send the order details!");
+      cart = [];
+      updateCartUI();
+      toggleCart(false);
+      document.getElementById('checkoutForm').reset();
+    }
 
-        function increaseQty(productId) {
-            const item = cart.find(item => item.id === productId);
-            if (item) {
-                if (item.unitType === 'gram10') {
-                    item.quantity += 10;
-                } else if (item.unitType === 'gram50') {
-                    item.quantity += 50;
-                } else {
-                    item.quantity = Math.round((item.quantity + 0.25) * 100) / 100;
-                }
-                updateCartUI();
-            }
-        }
-
-        function decreaseQty(productId) {
-            const item = cart.find(item => item.id === productId);
-            if (item) {
-                if (item.unitType === 'gram10' || item.unitType === 'gram50') {
-                    const step = item.stepQty || 10;
-                    if (item.quantity > (item.minQty || 50)) {
-                        item.quantity -= step;
-                    } else {
-                        removeFromCart(productId);
-                        return;
-                    }
-                } else {
-                    if (item.quantity > 0.25) {
-                        item.quantity = Math.round((item.quantity - 0.25) * 100) / 100;
-                    } else {
-                        removeFromCart(productId);
-                        return;
-                    }
-                }
-                updateCartUI();
-            }
-        }
-
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            updateCartUI();
-        }
-
-        function formatQuantity(item) {
-            if (item.unitType === 'gram10' || item.unitType === 'gram50') {
-                return `${item.quantity} g`;
-            } else {
-                if (item.quantity < 1) {
-                    return `${Math.round(item.quantity * 1000)} g`;
-                } else {
-                    return `${item.quantity} kg`;
-                }
-            }
-        }
-
-        function calculateItemTotal(item) {
-            if (item.unitType === 'gram10' || item.unitType === 'gram50') {
-                return Math.round((item.price / 1000) * item.quantity);
-            } else {
-                return Math.round(item.price * item.quantity);
-            }
-        }
-
-        function updateCartUI() {
-            document.getElementById('cart-count').innerText = cart.length;
-
-            const cartList = document.getElementById('cart-items');
-            const subtotalElem = document.getElementById('subtotal-amount');
-            const deliveryElem = document.getElementById('delivery-amount');
-            const grandTotalElem = document.getElementById('grand-total-amount');
-
-            const deliveryFee = parseInt(document.getElementById('delivery-zone').value) || 100;
-
-            if (cart.length === 0) {
-                cartList.innerHTML = '<p style="text-align:center; color:#777; padding: 1rem 0;">Your cart is empty.</p>';
-                subtotalElem.innerText = 'Rs. 0';
-                deliveryElem.innerText = `Rs. ${deliveryFee}`;
-                grandTotalElem.innerText = 'Rs. 0';
-                return;
-            }
-
-            let subtotalCost = 0;
-            cartList.innerHTML = cart.map(item => {
-                const itemTotal = calculateItemTotal(item);
-                subtotalCost += itemTotal;
-                return `
-                    <div class="cart-item">
-                        <div class="cart-item-info">
-                            <strong>${item.name}</strong><br>
-                            <span style="color:#d35400;">Rs. ${item.displayPrice} &times; ${formatQuantity(item)} = <strong>Rs. ${itemTotal}</strong></span>
-                        </div>
-                        <div class="qty-controls">
-                            <button class="qty-btn" onclick="decreaseQty(${item.id})">-</button>
-                            <span style="font-weight:bold; min-width:55px; text-align:center; font-size:0.85rem;">${formatQuantity(item)}</span>
-                            <button class="qty-btn" onclick="increaseQty(${item.id})">+</button>
-                            <button class="delete-btn" onclick="removeFromCart(${item.id})"><i class="fas fa-trash-alt"></i></button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            const grandTotal = subtotalCost + deliveryFee;
-
-            subtotalElem.innerText = `Rs. ${subtotalCost}`;
-            deliveryElem.innerText = `Rs. ${deliveryFee}`;
-            grandTotalElem.innerText = `Rs. ${grandTotal}`;
-        }
-
-        function toggleCart() {
-            const modal = document.getElementById('cart-modal');
-            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        function toggleBankDetails() {
-            const selectVal = document.getElementById('payment-method').value;
-            const bankBox = document.getElementById('bank-info');
-            if (selectVal.includes('Online')) {
-                bankBox.style.display = 'block';
-            } else {
-                bankBox.style.display = 'none';
-            }
-        }
-
-        function processOrder(type) {
-            if (cart.length === 0) {
-                alert('Your cart is empty! Please add products first.');
-                return;
-            }
-
-            const name = document.getElementById('cust-name').value.trim();
-            const phone = document.getElementById('cust-phone').value.trim();
-            const address = document.getElementById('cust-address').value.trim();
-            const zoneSelect = document.getElementById('delivery-zone');
-            const zoneText = zoneSelect.options[zoneSelect.selectedIndex].text;
-            const deliveryFee = parseInt(zoneSelect.value);
-            const payment = document.getElementById('payment-method').value;
-
-            if (!name || !phone || !address) {
-                alert('Please fill out Name, Phone, and Address fields.');
-                return;
-            }
-
-            let orderItemsText = cart.map(item => `• ${item.name} (${formatQuantity(item)}) = Rs. ${calculateItemTotal(item)}`).join('\n');
-            const subtotalCost = cart.reduce((sum, item) => sum + calculateItemTotal(item), 0);
-            const grandTotal = subtotalCost + deliveryFee;
-
-            if (type === 'email') {
-                const ownerEmail = 'kaifkaif223036@gmail.com';
-                const emailSubject = encodeURIComponent(`New Order from ${name} - Madina Herbal & dry fruit`);
-                const emailBody = encodeURIComponent(
-                    `New Order Details:\n` +
-                    `-----------------------------\n` +
-                    `Customer Name: ${name}\n` +
-                    `Phone Number: ${phone}\n` +
-                    `Delivery Option: ${zoneText}\n` +
-                    `Delivery Address: ${address}\n` +
-                    `Payment Method: ${payment}\n\n` +
-                    `Items Ordered:\n${orderItemsText}\n\n` +
-                    `-----------------------------\n` +
-                    `Subtotal: Rs. ${subtotalCost}\n` +
-                    `Delivery Charges: Rs. ${deliveryFee}\n` +
-                    `Grand Total: Rs. ${grandTotal}\n` +
-                    `-----------------------------`
-                );
-                
-                window.location.href = `mailto:${ownerEmail}?subject=${emailSubject}&body=${emailBody}`;
-            } 
-            else if (type === 'whatsapp') {
-                const message = 
-                    `🛒 *NEW ORDER - MADINA HERBAL & DRY FRUIT*\n` +
-                    `-----------------------------------\n` +
-                    `👤 *Customer Name:* ${name}\n` +
-                    `📞 *Phone Number:* ${phone}\n` +
-                    `🚚 *Delivery Option:* ${zoneText}\n` +
-                    `📍 *Address:* ${address}\n` +
-                    `💳 *Payment Method:* ${payment}\n` +
-                    `-----------------------------------\n` +
-                    `📦 *ITEMS ORDERED:*\n${orderItemsText}\n` +
-                    `-----------------------------------\n` +
-                    `💵 *Subtotal:* Rs. ${subtotalCost}\n` +
-                    `🚚 *Delivery Charges:* Rs. ${deliveryFee}\n` +
-                    `💰 *GRAND TOTAL:* Rs. ${grandTotal}\n` +
-                    `-----------------------------------`;
-
-                const whatsappUrl = `https://wa.me/923092700965?text=${encodeURIComponent(message)}`;
-                window.open(whatsappUrl, '_blank');
-            }
-
-            cart = [];
-            updateCartUI();
-            toggleCart();
-            document.getElementById('checkout-form').reset();
-            document.getElementById('bank-info').style.display = 'none';
-        }
-
-        renderAllCarousels();
-    </script>
+    // Initialize application on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+    });
+  </script>
 </body>
 </html>
